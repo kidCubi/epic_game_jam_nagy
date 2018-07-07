@@ -25,7 +25,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        //Here, we can start to call event listeners or stuff like requestAnimation Frameni
+        //Here, we can start to call event listeners or stuff like requestAnimationFrame
     }
 
     //How to access props :
