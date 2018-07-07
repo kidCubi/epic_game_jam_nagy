@@ -1,0 +1,52 @@
+/* ========================================================================
+  GRADIENTS
+  ======================================================================= */
+@mixin gradient($direction, $list) {
+  background: -webkit-linear-gradient($direction, $list);
+  background: -moz-linear-gradient($direction, $list);
+  background: -o-linear-gradient($direction, $list);
+  background: linear-gradient($direction, $list);
+}
+
+
+/* ========================================================================
+   ASPECT RATIO
+   ======================================================================== */
+
+/**
+ * from https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+ */
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+  }
+}
+
+/* ========================================================================
+   BREAKPOINTS
+   ======================================================================== */
+
+@mixin bp($point) {
+  @if $point == mobile {
+    @media (max-width: 1600px) { @content; }
+  }
+  @else if $point == tablet {
+    @media (max-width: 1250px) { @content; }
+  }
+  @else if $point == phone {
+    @media (max-width: 520px)  { @content; }
+  }
+}
