@@ -4,8 +4,10 @@
   background: grey;
   opacity: 0;
   outline: 1px solid;
-  font-size: 12px; }
+  font-size: 12px;
+  pointer-events: none; }
   .PowerupItem.isVisible {
     opacity: 0.5; }
   .PowerupItem.isActive {
-    opacity: 1; }
+    opacity: 1;
+    pointer-events: auto; }
