@@ -50,22 +50,3 @@
     @media (max-width: 520px)  { @content; }
   }
 }
-
-/* ========================================================================
-   RANDOM COLOR
-   ======================================================================== */
-
-@mixin backgrounds($c, $y) {
-  background: $c;
-  @for $i from 1 through $y {
-    $k: 3%;
-    $j: $i - 1;
-
-    @if $i == 1 {
-      &:nth-child(#{$i}) { background: $c; }
-    }
-    @else {
-      &:nth-child(#{$i}) { background: darken($c, ($k * $j)); }
-    }
-  }
-}
