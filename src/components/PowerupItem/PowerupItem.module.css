@@ -12,6 +12,8 @@
   .PowerupItem.isActive {
     opacity: 1;
     pointer-events: auto; }
+  .PowerupItem.isActive:hover {
+    cursor: pointer; }
 
 .price {
   position: absolute;
