@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { TweenLite } from 'gsap';
 import styles from './NumberTile.module.scss';
 
 import ChildComponent from './../ChildComponent/ChildComponent'
@@ -47,9 +48,19 @@ class NumberTile extends Component {
             progress: count
         }));
         if(this.state.progress >= 100) {
-            console.log('state progress is complete')
-            this.resetCount()
+            //Reset Progressbar scale
+            TweenLite.to(this.refProgressBar, 0.3, {
+                scaleX: 0
+            });
+            this.resetCount();
+            console.log('reset count')
+        } else {
+            TweenLite.to(this.refProgressBar, 0.3, {
+                scaleX: count / 100
+
+            });
         }
+        console.log(count / 100)
     }
 
     resetCount() {
@@ -77,8 +88,6 @@ class NumberTile extends Component {
         this.incrementTileProgress();
         setTimeout(() => {
             this.autoIncrement();
-            console.log('timeout')
-            console.log(this.state.autoIncrementDuration)
         }, this.state.autoIncrementDuration);
     }
 
@@ -98,9 +107,12 @@ class NumberTile extends Component {
     render() {
         return (
             <div className={styles.Wrapper} onClick={this.incrementTileProgress}>
-                <span>{this.state.progress}%</span>
-                <span className={styles.Multiplier}>+{this.state.multiplier}</span>
-                <span className={styles.TotalPoints}>{this.state.totalPoints}</span>
+                <div className={styles.Container}>
+                    <span className={styles.ProgressValue}>{this.state.progress}%</span>
+                    <span className={styles.Multiplier}>+{this.state.multiplier}</span>
+                    <span className={styles.TotalPoints}>{this.state.totalPoints}</span>
+                </div>
+                <div className={styles.ProgressBar} ref={node => this.refProgressBar = node}></div>
                 <ChildComponent
                     increaseMultiplierValue={this.increaseMultiplierValue.bind(this)}
                     autoIncrement={this.autoIncrement.bind(this)}
