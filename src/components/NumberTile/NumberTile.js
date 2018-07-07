@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import styles from './NumberTile.module.scss';
 
+import ChildComponent from './../ChildComponent/ChildComponent'
+import ChildComponent2 from './../ChildComponent2/ChildComponent2'
+
 import { connect } from 'react-redux';
 //import a redux mutator
 //import { setAgendaLoaded } from '../../redux/actions/index'
@@ -17,15 +20,17 @@ const mapActions = dispatch => ({
 class NumberTile extends Component {
     constructor() {
         super();
+
         this.state = {
             progress: 0,
-            multiplier: 3,
-            totalPoints: 0
+            multiplier: 1,
+            totalPoints: 0,
+            autoIncrementDuration: 1000
         };
 
         this.rafId = null;
 
-        this.incrementTile = this.incrementTile.bind(this);
+        this.incrementTileProgress = this.incrementTileProgress.bind(this);
         this.resetCount = this.resetCount.bind(this);
         this.addPoints = this.addPoints.bind(this);
         this.raf = this.raf.bind(this);
@@ -35,13 +40,14 @@ class NumberTile extends Component {
 
     }
 
-    incrementTile() {
+    incrementTileProgress() {
         let count = this.state.progress;
         count += 20;
         this.setState(state => ({
             progress: count
         }));
         if(this.state.progress >= 100) {
+            console.log('state progress is complete')
             this.resetCount()
         }
     }
@@ -50,7 +56,6 @@ class NumberTile extends Component {
         this.setState(state => ({
             progress: 0
         }));
-        if(this.state.progress === 0) return;
         this.addPoints();
     }
 
@@ -60,16 +65,49 @@ class NumberTile extends Component {
         }));
     }
 
+    increaseMultiplierValue() {
+        let count = this.state.multiplier;
+        count ++;
+        this.setState(state => ({
+            multiplier: count
+        }));
+    }
+
+    autoIncrement() {
+        this.incrementTileProgress();
+        setTimeout(() => {
+            this.autoIncrement();
+            console.log('timeout')
+            console.log(this.state.autoIncrementDuration)
+        }, this.state.autoIncrementDuration);
+    }
+
+    decreaseAutoincrementDuration() {
+        let count = this.state.autoIncrementDuration;
+        count -= 100;
+        if(count <= 500) count = 500;
+        this.setState(state => ({
+            autoIncrementDuration: count
+        }));
+    }
+
     raf() {
         this.rafId = requestAnimationFrame(this.raf);
     }
 
     render() {
         return (
-            <div className={styles.Wrapper} onClick={this.incrementTile}>
+            <div className={styles.Wrapper} onClick={this.incrementTileProgress}>
                 <span>{this.state.progress}%</span>
                 <span className={styles.Multiplier}>+{this.state.multiplier}</span>
                 <span className={styles.TotalPoints}>{this.state.totalPoints}</span>
+                <ChildComponent
+                    increaseMultiplierValue={this.increaseMultiplierValue.bind(this)}
+                    autoIncrement={this.autoIncrement.bind(this)}
+                />
+                <ChildComponent2
+                    decreaseAutoincrementDuration={this.decreaseAutoincrementDuration.bind(this)}
+                />
             </div>
         );
     }
