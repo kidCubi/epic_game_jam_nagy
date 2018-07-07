@@ -124,8 +124,8 @@ class NumberTile extends Component {
 
     render() {
         return (
-            <div className={styles.Wrapper} ref={node => this.refWrapper = node} onClick={this.incrementTileProgress}>
-                <div className={styles.Container}>
+            <div className={styles.Container} ref={node => this.refWrapper = node} onClick={this.incrementTileProgress}>
+                <div className={styles.Wrapper}>
                     <span className={styles.ProgressValue}>{this.state.progress}%</span>
                     <span className={styles.Multiplier}>+{this.state.multiplier}</span>
                     <span className={styles.TotalPoints}>{this.state.totalPoints}</span>
