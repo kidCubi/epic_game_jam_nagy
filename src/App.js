@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import styles from './App.scss';
 
+import Masonry from 'react-masonry-component';
+
 import NumberTile from './components/NumberTile/NumberTile'
 
 import { connect } from 'react-redux';
@@ -11,13 +13,13 @@ const mapState = state => ({
 });
 
 const mapActions = dispatch => ({
-    
+
 });
 
 class App extends Component {
     constructor() {
         super();
-        
+
     }
 
     componentDidUpdate(prevProps) {
@@ -26,6 +28,12 @@ class App extends Component {
 
     componentDidMount() {
         //Here, we can start to call event listeners or stuff like requestAnimationFrame
+        document.addEventListener('keydown', (event) => {
+            const keyName = event.key;
+            if(keyName === "y") {
+                //add component
+            }
+        });
     }
 
     //How to access props :
@@ -37,7 +45,7 @@ class App extends Component {
         //If you want to add multiple classes to a component, it's always nice to store
         //theses in a classNames object, like so
         const classes = classNames(
-            styles.Wrapper
+            styles.Grid
         );
         //If you want to add only one, it's simple to do like so : className={styles.myClassName}
         return (
@@ -46,9 +54,8 @@ class App extends Component {
             //    {this.state.stateLoaded &&
             //      <MyComponent>
             //   }
-            <div className={classes}>
+
                 <NumberTile/>
-            </div>
 
         );
     }

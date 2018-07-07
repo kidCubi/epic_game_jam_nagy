@@ -10,14 +10,37 @@
 /* ========================================================================
    BREAKPOINTS
    ======================================================================== */
-.Wrapper {
+/* ========================================================================
+   RANDOM COLOR
+   ======================================================================== */
+.Container {
   color: white;
-  height: 100vh;
-  width: 100vw;
+  height: 100px;
+  width: 200px;
   cursor: pointer;
   background: blue; }
+  .Container:nth-child(1) {
+    background: blue; }
+  .Container:nth-child(2) {
+    background: #0000f0; }
+  .Container:nth-child(3) {
+    background: #0000e0; }
+  .Container:nth-child(4) {
+    background: #0000d1; }
+  .Container:nth-child(5) {
+    background: #0000c2; }
+  .Container:nth-child(6) {
+    background: #0000b3; }
+  .Container:nth-child(7) {
+    background: #0000a3; }
+  .Container:nth-child(8) {
+    background: #000094; }
+  .Container:nth-child(9) {
+    background: #000085; }
+  .Container:nth-child(10) {
+    background: #000075; }
 
-.Container {
+.Wrapper {
   z-index: 11;
   height: inherit;
   width: inherit;
