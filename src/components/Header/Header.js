@@ -26,11 +26,11 @@ class Header extends Component {
             <div className={styles.Header}>
                 <div className={styles.InfoWrapper}>
                     <span className={styles.Info}>{this.props.gameTotalPoints}</span>
-                    <span className={styles.InfoCaption}>points</span>
+                    <span className={styles.InfoCaption}>pts</span>
                 </div>
                 <div className={styles.InfoWrapper}>
                     <span className={styles.Info}>{this.props.gameTotalSpeed}</span>
-                    <span className={styles.InfoCaption}>per second</span>
+                    <span className={styles.InfoCaption}>/ second</span>
                 </div>
 
             </div>

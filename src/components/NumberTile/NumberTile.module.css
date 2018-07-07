@@ -17,9 +17,7 @@
   height: 100%;
   width: 49vw;
   cursor: pointer;
-  background-color: #97FFFF;
-  font: normal 300 2vw "Lato", sans-serif;
-  font-weight: 400; }
+  background-color: #97FFFF; }
 
 .Wrapper {
   z-index: 11;
@@ -41,17 +39,17 @@
     font-size: 3vw; }
 
 .TopLeft {
-  outline: 1px solid #1A00FF;
+  border: 2px solid #1A00FF;
   width: 30%;
   max-width: 100px;
   position: absolute;
   top: 2%;
   left: 5%;
-  font-weight: 700; }
+  font-weight: 400; }
   .TopLeft .Multiplier {
     text-align: center;
     display: block;
-    padding: 0.2em 0em;
+    padding: 0.2em 0;
     background-color: #1A00FF;
     color: #FFFFFF;
     font-size: 2vw;
