@@ -26,7 +26,8 @@ class NumberTile extends Component {
             progress: 0,
             multiplier: 1,
             totalPoints: 0,
-            autoIncrementDuration: 1000
+            autoIncrementDuration: 1000,
+            isTileHovered: false
         };
 
         this.rafId = null;
@@ -38,7 +39,20 @@ class NumberTile extends Component {
     }
 
     componentDidMount() {
+        this.refWrapper.addEventListener('mouseenter', this.mouseEnter.bind(this));
+        this.refWrapper.addEventListener('mouseout', this.mouseLeave.bind(this));
+    }
 
+    mouseEnter() {
+        this.setState(state => ({
+            isTileHovered: true
+        }));
+    }
+
+    mouseLeave() {
+        this.setState(state => ({
+            isTileHovered: false
+        }));
     }
 
     incrementTileProgress() {
@@ -57,7 +71,6 @@ class NumberTile extends Component {
         } else {
             TweenLite.to(this.refProgressBar, 0.3, {
                 scaleX: count / 100
-
             });
         }
         console.log(count / 100)
@@ -104,9 +117,14 @@ class NumberTile extends Component {
         this.rafId = requestAnimationFrame(this.raf);
     }
 
+    componentWillUnmount() {
+        this.refWrapper.removeEventListener('mouseenter', this.mouseEnter);
+        this.refWrapper.removeEventListener('mouseout', this.mouseLeave);
+    }
+
     render() {
         return (
-            <div className={styles.Wrapper} onClick={this.incrementTileProgress}>
+            <div className={styles.Wrapper} ref={node => this.refWrapper = node} onClick={this.incrementTileProgress}>
                 <div className={styles.Container}>
                     <span className={styles.ProgressValue}>{this.state.progress}%</span>
                     <span className={styles.Multiplier}>+{this.state.multiplier}</span>
