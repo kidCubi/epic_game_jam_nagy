@@ -2,16 +2,25 @@
 @import '../../sass/helpers/variables';
 
 .Wrapper {
-  display: flex;
-  flex-direction: column;
   color: white;
   height: 100vh;
   width: 100vw;
-  background: blue;
   cursor: pointer;
-  span:first-of-type {
-    margin: auto;
-  }
+  background: blue;
+}
+
+.Container {
+  z-index: 11;
+  height: inherit;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.ProgressValue {
+  font-size: 40px;
+  margin: auto;
 }
 
 .Multiplier {
@@ -24,4 +33,16 @@
   position: absolute;
   top: 5%;
   left: 5%;
+}
+
+.ProgressBar {
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 10;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  background: darken(blue,15%);
 }
