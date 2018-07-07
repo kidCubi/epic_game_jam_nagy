@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { TweenLite } from 'gsap';
+import { TweenLite, Circ } from 'gsap';
+import throttle from 'lodash.throttle';
+
 import styles from './NumberTile.module.scss';
 import PowerupBar from '../PowerupBar/PowerupBar'
 
@@ -30,6 +32,7 @@ class NumberTile extends Component {
         };
 
         this.rafId = null;
+        this.canClick = true;
 
         this.incrementTileProgress = this.incrementTileProgress.bind(this);
         this.resetCount = this.resetCount.bind(this);
@@ -55,24 +58,30 @@ class NumberTile extends Component {
     }
 
     incrementTileProgress() {
-        let count = this.state.progress;
-        count += 20;
-        this.setState(state => ({
-            progress: count
-        }));
-        if(this.state.progress >= 100) {
-            //Reset Progressbar scale
-            TweenLite.to(this.refProgressBar, 0.3, {
-                scaleX: 0
-            });
-            this.resetCount();
-            console.log('reset count')
-        } else {
-            TweenLite.to(this.refProgressBar, 0.3, {
-                scaleX: count / 100
+
+        let count = {val: this.state.progress};
+
+        if(this.canClick) {
+            TweenLite.to(count, 1.8, {
+                val: "+=" + 100,
+                ease: Circ.easeOut,
+                onUpdate: () => {
+                    this.canClick = false;
+                    this.setState(state => ({
+                        progress: Math.ceil(count.val)
+                    }));
+                    this.refProgressBar.style.transform = `scaleX(${ count.val / 100 })`
+                },
+                onComplete: () => {
+                    TweenLite.to(this.refProgressBar, 0.3, {
+                        scaleX: 0
+                    });
+                    this.resetCount();
+                    this.canClick = true;
+                }
             });
         }
-        console.log(count / 100)
+
     }
 
     resetCount() {
@@ -123,20 +132,13 @@ class NumberTile extends Component {
 
     render() {
         return (
-            <div className={styles.Container} ref={node => this.refWrapper = node} onClick={this.incrementTileProgress}>
+            <div className={styles.Container} ref={node => this.refWrapper = node} onClick={throttle(this.incrementTileProgress, 5000, {trailing: true})}>
                 <div className={styles.Wrapper}>
                     <span className={styles.ProgressValue}>{this.state.progress}%</span>
                     <span className={styles.Multiplier}>+{this.state.multiplier}</span>
                     <span className={styles.TotalPoints}>{this.state.totalPoints}</span>
                 </div>
                 <div className={styles.ProgressBar} ref={node => this.refProgressBar = node}></div>
-                <PowerupBar
-                    increaseMultiplierValue={this.increaseMultiplierValue.bind(this)}
-                    decreaseAutoincrementDuration={this.decreaseAutoincrementDuration.bind(this)}
-                    autoIncrement={this.autoIncrement.bind(this)}
-                    totalPoints={this.state.totalPoints}
-                    isTileHovered={this.state.isTileHovered}
-                />
 
             </div>
         );
