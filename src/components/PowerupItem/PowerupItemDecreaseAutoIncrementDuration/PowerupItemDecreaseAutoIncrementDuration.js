@@ -19,6 +19,9 @@ class PowerupItemDecreaseAutoIncrementDuration extends PowerupItem {
             triggerVisibility: 20
         }));
         this.setState(state => ({
+            priceMultiplier: 2
+        }));
+        this.setState(state => ({
             caption: 'Speed xn.n'
         }));
     }
