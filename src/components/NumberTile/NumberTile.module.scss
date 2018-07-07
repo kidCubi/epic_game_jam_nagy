@@ -3,12 +3,25 @@
 
 .Wrapper {
   display: flex;
+  flex-direction: column;
   color: white;
   height: 100vh;
   width: 100vw;
   background: blue;
   cursor: pointer;
-  span {
+  span:first-of-type {
     margin: auto;
   }
+}
+
+.Multiplier {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.TotalPoints {
+  position: absolute;
+  top: 5%;
+  left: 5%;
 }
