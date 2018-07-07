@@ -53,7 +53,6 @@ class App extends Component {
                 <div className={classes}>
                     <NumberTile/>
                     <NumberTile/>
-                    <NumberTile/>
                 </div>
             </div>
 

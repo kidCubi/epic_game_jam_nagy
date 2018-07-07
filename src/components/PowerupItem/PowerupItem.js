@@ -82,17 +82,16 @@ class PowerupItem extends Component {
 
     render() {
 
-        const stylingClasses = classNames(
+        const classes = classNames(
             styles.PowerupItem,
             {[styles.isVisible]: this.state.isVisible },
             {[styles.isActive]: this.state.isActive }
         );
 
         return (
-            <div className={stylingClasses} onClick={this.handleClick.bind(this)}>
-                {/*<p onClick={this.props.increaseMultiplierValue}>{this.state.test}</p>*/}
+            <div className={classes} onClick={this.handleClick.bind(this)}>
                 {this.state.caption}
-                <span className={styles.price}>{this.state.price}</span>
+                <span className={styles.Price}>{this.state.price}</span>
             </div>
         );
     }

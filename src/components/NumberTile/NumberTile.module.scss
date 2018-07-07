@@ -6,7 +6,7 @@
   position: relative;
   display: inline-block;
   height: 100%;
-  width: 33.33vw;
+  width: 49vw;
   cursor: pointer;
   background-color: $c-electricBlue;
   font: $f-LatoRegularMedium;
@@ -24,20 +24,21 @@
 
 .ProgressValue {
   position: absolute;
-  bottom: 30%;
+  bottom: 5%;
   left: 5%;
   margin: auto;
   color: $c-purple;
-  font-size: 40px;
+  font-size: 7vw;
   font-weight: 700;
   .Percentage {
-    font-size: 10px;
+    font-size: 3vw;
   }
 }
 
 .TopLeft {
   outline: 1px solid $c-purple;
   width: 30%;
+  max-width:100px;
   position: absolute;
   top: 2%;
   left: 5%;
@@ -48,14 +49,16 @@
     padding: 0.2em 0em;
     background-color: $c-purple;
     color: $c-white;
-    font-size: 4vw;
+    font-size: 2vw;
+    word-wrap: break-word;
   }
   .TotalPoints {
     display: block;
     background-color: $c-white;
     color: $c-purple;
     padding: 0.5em 1em;
-    font-size: 2vw;
+    font-size: 1vw;
+    word-wrap: break-word;
   }
 }
 
@@ -76,6 +79,7 @@
   top: 2%;
   right: 5%;
   color: $c-purple;
+  font-size: 1.5vw;
 
   .SpeedMultiplier {
     font-weight: 100;

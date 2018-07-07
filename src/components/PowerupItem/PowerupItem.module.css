@@ -1,12 +1,29 @@
+/* ========================================================================
+  GRADIENTS
+  ======================================================================= */
+/* ========================================================================
+   ASPECT RATIO
+   ======================================================================== */
+/**
+ * from https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+ */
+/* ========================================================================
+   BREAKPOINTS
+   ======================================================================== */
 .PowerupItem {
   display: block;
   position: relative;
   height: 10%;
-  background: grey;
+  background: #1A00FF;
+  padding: 13px 0 13px 10px;
+  margin-bottom: 3px;
   opacity: 0;
-  outline: 1px solid;
-  font-size: 12px;
-  pointer-events: none; }
+  font-size: 1.3vw;
+  pointer-events: none;
+  border: 2px solid #1A00FF;
+  color: #FFFFFF; }
+  .PowerupItem:last-of-type {
+    margin-bottom: 0; }
   .PowerupItem.isVisible {
     opacity: 0.5; }
   .PowerupItem.isActive {
@@ -15,6 +32,14 @@
   .PowerupItem.isActive:hover {
     cursor: pointer; }
 
-.price {
+.Price {
+  height: 100%;
+  padding: 0 1.4em;
+  right: 0;
+  top: 0;
   position: absolute;
-  right: 0; }
+  color: #1A00FF;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
