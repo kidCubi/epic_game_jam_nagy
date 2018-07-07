@@ -67,7 +67,7 @@ class PowerupItem extends Component {
 
     handleClick() {
         this.props.modifyParent();
-        this.props.decreaseTotalPoints(this.state.price);
+        this.props.decreaseTotalPoints(-1 * this.state.price);
         this.increasePrice();
     }
 
