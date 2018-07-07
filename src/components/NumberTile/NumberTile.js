@@ -26,6 +26,7 @@ class NumberTile extends Component {
         this.state = {
             progress: 0,
             multiplier: 1,
+            speedMultiplier: 1,
             totalPoints: 0,
             autoIncrementDuration: 1000,
             isTileHovered: false
@@ -62,7 +63,7 @@ class NumberTile extends Component {
         let count = {val: this.state.progress};
 
         if(this.canClick) {
-            TweenLite.to(count, 1.8, {
+            TweenLite.to(count, 1.3, {
                 val: "+=" + 100,
                 ease: Circ.easeOut,
                 onUpdate: () => {
@@ -73,8 +74,9 @@ class NumberTile extends Component {
                     this.refProgressBar.style.transform = `scaleX(${ count.val / 100 })`
                 },
                 onComplete: () => {
-                    TweenLite.to(this.refProgressBar, 0.3, {
-                        scaleX: 0
+                    TweenLite.to(this.refProgressBar, 0.25, {
+                        scaleX: 0,
+                        ease: Circ.easeOut
                     });
                     this.resetCount();
                     this.canClick = true;
@@ -93,7 +95,7 @@ class NumberTile extends Component {
 
     addPoints() {
         this.setState(state => ({
-            totalPoints: this.state.totalPoints + this.state.multiplier
+            totalPoints: this.state.totalPoints + this.state.multiplier + 100
         }));
     }
 
@@ -119,6 +121,7 @@ class NumberTile extends Component {
         this.setState(state => ({
             autoIncrementDuration: count
         }));
+        console.log(this.state.autoIncrementDuration)
     }
 
     decreaseTotalPoints(cost) {
@@ -143,11 +146,29 @@ class NumberTile extends Component {
     render() {
         return (
             <div className={styles.Container} ref={node => this.refWrapper = node} onClick={throttle(this.incrementTileProgress, 5000, {trailing: true})}>
+
                 <div className={styles.Wrapper}>
-                    <span className={styles.ProgressValue}>{this.state.progress}%</span>
-                    <span className={styles.Multiplier}>+{this.state.multiplier}</span>
-                    <span className={styles.TotalPoints}>{this.state.totalPoints}</span>
+                    <span className={styles.ProgressValue}>
+                        {this.state.progress}
+                        <span className={styles.Percentage}>%</span>
+                     </span>
+
+                    <div className={styles.TopLeft}>
+                        <span className={styles.Multiplier}>{this.state.totalPoints}</span>
+                        <span className={styles.TotalPoints}>+{this.state.multiplier}</span>
+                    </div>
+
+                    <div className={styles.TopRight}>
+                        <div className={styles.SpeedMultiplier}>
+                            Speed <span>x {
+                            (this.state.autoIncrementDuration / (this.state.autoIncrementDuration * 0.99)).toFixed(1)
+                        }</span>
+
+                        </div>
+                    </div>
                 </div>
+
+
                 <div className={styles.ProgressBar} ref={node => this.refProgressBar = node}></div>
                 <PowerupBar
                     increaseMultiplierValue={this.increaseMultiplierValue.bind(this)}
@@ -157,7 +178,6 @@ class NumberTile extends Component {
                     totalPoints={this.state.totalPoints}
                     isTileHovered={this.state.isTileHovered}
                 />
-
             </div>
         );
     }

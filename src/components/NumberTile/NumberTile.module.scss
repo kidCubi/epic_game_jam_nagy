@@ -2,6 +2,7 @@
 @import '../../sass/helpers/variables';
 
 .Container {
+  outline: 1px solid;
   position: relative;
   display: inline-block;
   height: 100%;
@@ -22,23 +23,40 @@
 }
 
 .ProgressValue {
-  font-size: 40px;
+  position: absolute;
+  bottom: 30%;
+  left: 5%;
   margin: auto;
   color: $c-purple;
+  font-size: 40px;
+  font-weight: 700;
+  .Percentage {
+    font-size: 10px;
+  }
 }
 
-.Multiplier {
+.TopLeft {
+  outline: 1px solid $c-purple;
+  width: 30%;
   position: absolute;
-  top: 5%;
-  right: 5%;
-  color: $c-purple;
-}
-
-.TotalPoints {
-  position: absolute;
-  top: 5%;
+  top: 2%;
   left: 5%;
-  color: $c-purple;
+  font-weight: 700;
+  .Multiplier {
+    text-align: center;
+    display: block;
+    padding: 0.2em 0em;
+    background-color: $c-purple;
+    color: $c-white;
+    font-size: 4vw;
+  }
+  .TotalPoints {
+    display: block;
+    background-color: $c-white;
+    color: $c-purple;
+    padding: 0.5em 1em;
+    font-size: 2vw;
+  }
 }
 
 .ProgressBar {
@@ -51,4 +69,18 @@
   height: inherit;
   width: inherit;
   background-color: $c-electricBlueDark;
+}
+
+.TopRight {
+  position: absolute;
+  top: 2%;
+  right: 5%;
+  color: $c-purple;
+
+  .SpeedMultiplier {
+    font-weight: 100;
+    span {
+      font-weight: 700;
+    }
+  }
 }
