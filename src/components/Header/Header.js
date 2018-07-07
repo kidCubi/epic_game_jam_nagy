@@ -19,30 +19,17 @@ const mapActions = dispatch => ({
 class Header extends Component {
     constructor() {
         super();
-
-        this.state = {
-            progress: 0,
-            multiplier: 1,
-            totalPoints: 0,
-            autoIncrementDuration: 1000,
-            isTileHovered: false
-        };
     }
-
-
-
-
-
 
     render() {
         return (
             <div className={styles.Header}>
                 <div className={styles.InfoWrapper}>
-                    <span className={styles.Info}>555</span>
+                    <span className={styles.Info}>{this.props.gameTotalPoints}</span>
                     <span className={styles.InfoCaption}>points</span>
                 </div>
                 <div className={styles.InfoWrapper}>
-                    <span className={styles.Info}>45</span>
+                    <span className={styles.Info}>{this.props.gameTotalSpeed}</span>
                     <span className={styles.InfoCaption}>per second</span>
                 </div>
 

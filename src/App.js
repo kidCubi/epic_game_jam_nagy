@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import styles from './App.scss';
 
-import NumberTile from './components/NumberTile/NumberTile'
+import Grid from './components/Grid/Grid'
 import Header from './components/Header/Header'
 
 import { connect } from 'react-redux';
@@ -18,7 +18,29 @@ const mapActions = dispatch => ({
 class App extends Component {
     constructor() {
         super();
+        this.state = {
+            totalPoints: 0,
+            totalSpeed: 0
+        };
+    }
 
+    setTotalPoints(change) {
+        let totalPoints = this.state.totalPoints;
+        totalPoints += change;
+        this.setState(state => ({
+            totalPoints: totalPoints
+        }));
+
+        console.log(this.state.totalPoints);
+    }
+
+
+    setTotalSpeed(change) {
+        let totalSpeed = this.state.totalSpeed;
+        totalSpeed += change;
+        this.setState(state => ({
+            totalSpeed: totalSpeed
+        }));
     }
 
     componentDidUpdate(prevProps) {
@@ -49,11 +71,14 @@ class App extends Component {
         //If you want to add only one, it's simple to do like so : className={styles.myClassName}
         return (
             <div>
-                <Header/>
-                <div className={classes}>
-                    <NumberTile/>
-                    <NumberTile/>
-                </div>
+                <Header
+                    gameTotalPoints={this.state.totalPoints}
+                    gameTotalSpeed={this.state.totalSpeed}
+                />
+                <Grid
+                    gameSetTotalPoints={this.setTotalPoints.bind(this)}
+                    gameSetTotalSpeed={this.setTotalSpeed.bind(this)}
+                />
             </div>
 
         );

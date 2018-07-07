@@ -75,6 +75,3 @@ html, body {
 body {
   padding: 8px;
   background: #1A00FF; }
-
-.Grid {
-  height: calc(100vh - 60px); }

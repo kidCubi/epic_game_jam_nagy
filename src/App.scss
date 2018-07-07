@@ -11,7 +11,3 @@ body {
     padding: $bodyPadding;
     background: $c-purple;
 }
-
-.Grid {
-    height: calc(100vh - #{$headerHeight});
-}

@@ -97,6 +97,8 @@ class NumberTile extends Component {
         this.setState(state => ({
             totalPoints: this.state.totalPoints + this.state.multiplier + 100
         }));
+
+        this.props.gameSetTotalPoints(this.state.multiplier + 100);
     }
 
     increaseMultiplierValue() {
@@ -130,8 +132,6 @@ class NumberTile extends Component {
         this.setState(state => ({
             totalPoints: totalPoints
         }));
-
-
     }
 
     raf() {
