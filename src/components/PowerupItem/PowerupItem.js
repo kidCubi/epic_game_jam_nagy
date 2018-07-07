@@ -14,6 +14,7 @@ class PowerupItem extends Component {
             isSold:false,
             triggerVisibility: 1,
             price: 1,
+            priceMultiplier: 1.5,
             caption: "this is the caption"
         }
     }
@@ -42,10 +43,6 @@ class PowerupItem extends Component {
         }));
     }
 
-    buyPowerup() {
-        this.props.totalPoints
-    }
-
     componentDidMount() {
         console.log(this.props);
     }
@@ -71,6 +68,16 @@ class PowerupItem extends Component {
     handleClick() {
         this.props.modifyParent();
         this.props.decreaseTotalPoints(this.state.price);
+        this.increasePrice();
+    }
+
+    increasePrice() {
+        let newPrice = this.state.price;
+        newPrice *= this.state.priceMultiplier;
+        newPrice = Math.ceil(newPrice);
+        this.setState(state => ({
+            price: newPrice
+        }));
     }
 
     render() {
@@ -85,6 +92,7 @@ class PowerupItem extends Component {
             <div className={stylingClasses} onClick={this.handleClick.bind(this)}>
                 {/*<p onClick={this.props.increaseMultiplierValue}>{this.state.test}</p>*/}
                 {this.state.caption}
+                <span className={styles.price}>{this.state.price}</span>
             </div>
         );
     }

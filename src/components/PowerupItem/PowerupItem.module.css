@@ -1,5 +1,6 @@
 .PowerupItem {
   display: block;
+  position: relative;
   height: 10%;
   background: grey;
   opacity: 0;
@@ -11,3 +12,7 @@
   .PowerupItem.isActive {
     opacity: 1;
     pointer-events: auto; }
+
+.price {
+  position: absolute;
+  right: 0; }
