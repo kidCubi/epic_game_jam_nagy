@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 import styles from './PowerupItem.module.scss'
 
+
+
 class PowerupItem extends Component {
 
     constructor() {
@@ -40,21 +42,21 @@ class PowerupItem extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(prevProps.totalPoints !== this.props.totalPoints) {
-            console.log(prevProps);
-            if( prevProps.totalPoints === this.state.triggerActive &&
-                !this.state.isActive
-            ) {
-                this.makeActive();
-            }
-
-            if(prevProps.totalPoints === this.state.triggerVisibility &&
-                !this.state.isVisible
-            ) {
-                this.makeVisible();
-            }
+        console.log('prev points');
+        console.log(prevProps);
+        console.log('triggerVisibility');
+        console.log(this.state.triggerVisibility);
+        if( prevProps.totalPoints === this.state.triggerActive &&
+            !this.state.isActive
+        ) {
+            this.makeActive();
         }
 
+        if(prevProps.totalPoints === this.state.triggerVisibility &&
+            !this.state.isVisible
+        ) {
+            this.makeVisible();
+        }
     }
 
     render() {
