@@ -1,10 +1,12 @@
 .PowerupItem {
     display: block;
+    position: relative;
     height: 10%;
     background: grey;
     opacity: 0;
     outline: 1px solid;
     font-size: 12px;
+    pointer-events: none;
 
     &.isVisible {
         opacity: 0.5;
@@ -12,5 +14,11 @@
 
     &.isActive {
         opacity: 1;
+        pointer-events: auto;
     }
+}
+
+.price {
+    position: absolute;
+    right: 0;
 }

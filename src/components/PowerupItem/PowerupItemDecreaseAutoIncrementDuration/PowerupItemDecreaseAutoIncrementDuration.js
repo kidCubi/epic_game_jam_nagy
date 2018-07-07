@@ -13,10 +13,10 @@ class PowerupItemDecreaseAutoIncrementDuration extends PowerupItem {
 
     init() {
         this.setState(state => ({
-            price: 100
+            price: 55
         }));
         this.setState(state => ({
-            triggerVisibility: 1
+            triggerVisibility: 20
         }));
         this.setState(state => ({
             caption: 'increment faster'
@@ -26,8 +26,6 @@ class PowerupItemDecreaseAutoIncrementDuration extends PowerupItem {
     componentDidMount() {
         this.init();
     }
-
-
 }
 
 export default PowerupItemDecreaseAutoIncrementDuration;

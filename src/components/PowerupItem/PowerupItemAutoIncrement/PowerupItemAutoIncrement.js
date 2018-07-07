@@ -12,7 +12,7 @@ class PowerupItemIncrementMultiplier extends PowerupItem {
 
     init() {
         this.setState(state => ({
-            price: 200
+            price: 20
         }));
         this.setState(state => ({
             triggerVisibility: 5
