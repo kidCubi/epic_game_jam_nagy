@@ -19,9 +19,6 @@ class PowerupItemDecreaseAutoIncrementDuration extends PowerupItem {
             triggerVisibility: 1
         }));
         this.setState(state => ({
-            triggerActive: 2
-        }));
-        this.setState(state => ({
             caption: 'increment faster'
         }));
     }

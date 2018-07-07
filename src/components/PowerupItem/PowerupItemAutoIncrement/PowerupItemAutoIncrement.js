@@ -18,9 +18,6 @@ class PowerupItemIncrementMultiplier extends PowerupItem {
             triggerVisibility: 5
         }));
         this.setState(state => ({
-            triggerActive: 8
-        }));
-        this.setState(state => ({
             caption: 'auto increment'
         }));
     }
