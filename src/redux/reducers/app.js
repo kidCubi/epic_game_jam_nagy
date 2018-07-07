@@ -5,25 +5,19 @@ import {
 } from '../actions/index';
 
 const initialState = {
-    //It's mandatory to initialize every state you will have in your app
-    //modulesLoaded: {
-    //    meteoLoaded: false,
-    //    moneyLoaded: false,
-    //    agendaLoaded: false,
-    //    transportsLoaded: false,
-    //    todoLoaded: false,
-    //    contactsLoaded: false
-    //},
-    //widgets: {
-    //    draggable: false
-    //},
-    //menu: {
-    //    overlay: {
-    //        x: 0,//
-    //        y: 0
-    //    },
-    //    isOpen: false
-    //}
+    totalPoints: 0,
+    numberOfTiles: 0,
+    numberOfPlanets: 1,
+    planet: {
+        pointsPerSecond: 0,
+        numberofTiles: 1,
+        tileGroup: {
+            tile: {
+                multiplier: 0,
+                pointsEarnedPerCompletion: 0
+            }
+        }
+    }
 };
 
 export default function (state = { ...initialState }, action) {
