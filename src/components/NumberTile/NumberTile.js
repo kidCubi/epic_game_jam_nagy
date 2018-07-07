@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './NumberTile.module.scss';
 
 import ChildComponent from './../ChildComponent/ChildComponent'
-import ChildComponent2 from './../ChildComponent2/ChildComponent2'
+import PowerupItem from './../PowerupItem/PowerupItem'
 
 import { connect } from 'react-redux';
 //import a redux mutator
@@ -105,12 +105,18 @@ class NumberTile extends Component {
                     increaseMultiplierValue={this.increaseMultiplierValue.bind(this)}
                     autoIncrement={this.autoIncrement.bind(this)}
                 />
-                <ChildComponent2
-                    decreaseAutoincrementDuration={this.decreaseAutoincrementDuration.bind(this)}
+                <PowerupItem
+                    autoIncrement={this.autoIncrement.bind(this)}
+                    totalPoints={this.state.totalPoints}
                 />
+
             </div>
         );
     }
 }
 
 export default connect(mapState, mapActions)(NumberTile);
+
+// <ChildComponent2
+//     decreaseAutoincrementDuration={this.decreaseAutoincrementDuration.bind(this)}
+// />

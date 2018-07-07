@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
 
+import classNames from 'classnames';
+
+import styles from './ChildComponent.module.scss'
+
 class ChildComponent extends Component {
 
     constructor() {
         super();
         this.state = {
-            test: "kitten"
+            test: "kitten",
+            isVisible: false
         }
     }
 
@@ -14,8 +19,17 @@ class ChildComponent extends Component {
     }
 
     render() {
+
+        const myWrapper = classNames(
+            styles.Wrapper,
+            styles.myContainer,
+            {[styles.isVisible]: this.state.isVisible }
+        );
+
+
+
         return (
-            <div className="ChildComponent">
+            <div className={myWrapper}>
                 {/*<p onClick={this.props.increaseMultiplierValue}>{this.state.test}</p>*/}
                 <p onClick={this.props.autoIncrement}> Engage autoincrement </p>
             </div>
