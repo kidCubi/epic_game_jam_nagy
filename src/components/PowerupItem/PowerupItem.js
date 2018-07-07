@@ -42,17 +42,16 @@ class PowerupItem extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if( prevProps.totalPoints === this.state.triggerActive &&
-            !this.state.isActive
-        ) {
-            this.makeActive();
+        if(prevProps.totalPoints !== this.props.totalPoints) {
+            if( this.props.totalPoints === this.state.triggerActive && !this.state.isActive) {
+                this.makeActive();
+            }
+
+            if(this.props.totalPoints === this.state.triggerVisibility && !this.state.isVisible) {
+                this.makeVisible();
+            }
         }
 
-        if(prevProps.totalPoints === this.state.triggerVisibility &&
-            !this.state.isVisible
-        ) {
-            this.makeVisible();
-        }
     }
 
     render() {

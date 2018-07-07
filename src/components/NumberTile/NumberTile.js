@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TweenLite } from 'gsap';
 import styles from './NumberTile.module.scss';
-import PowerupBar from './../PowerupBar/PowerupBar'
+import PowerupBar from '../PowerupBar/PowerupBar'
 
 
 import { connect } from 'react-redux';
@@ -39,7 +39,7 @@ class NumberTile extends Component {
 
     componentDidMount() {
         this.refWrapper.addEventListener('mouseenter', this.mouseEnter.bind(this));
-        this.refWrapper.addEventListener('mouseout', this.mouseLeave.bind(this));
+        this.refWrapper.addEventListener('mouseleave', this.mouseLeave.bind(this));
     }
 
     mouseEnter() {
@@ -118,7 +118,7 @@ class NumberTile extends Component {
 
     componentWillUnmount() {
         this.refWrapper.removeEventListener('mouseenter', this.mouseEnter);
-        this.refWrapper.removeEventListener('mouseout', this.mouseLeave);
+        this.refWrapper.removeEventListener('mouseleave', this.mouseLeave);
     }
 
     render() {

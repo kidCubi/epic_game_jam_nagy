@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import styles from './App.scss';
 
-import Masonry from 'react-masonry-component';
-
 import NumberTile from './components/NumberTile/NumberTile'
 
 import { connect } from 'react-redux';
@@ -49,13 +47,11 @@ class App extends Component {
         );
         //If you want to add only one, it's simple to do like so : className={styles.myClassName}
         return (
-            //To define if a redux state has been loaded, we can watch it from the render function like so
-            //<div>
-            //    {this.state.stateLoaded &&
-            //      <MyComponent>
-            //   }
-
+            <div>
                 <NumberTile/>
+                <NumberTile/>
+                <NumberTile/>
+            </div>
 
         );
     }

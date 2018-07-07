@@ -1,16 +1,16 @@
 .PowerupItem {
     display: block;
-    height: 50px;
+    height: 10%;
     background: grey;
     opacity: 0;
+    outline: 1px solid;
+    font-size: 12px;
 
-}
+    &.isVisible {
+        opacity: 0.5;
+    }
 
-
-.isVisible {
-    opacity: 0.5;
-}
-
-.isActive {
-    opacity: 1;
+    &.isActive {
+        opacity: 1;
+    }
 }

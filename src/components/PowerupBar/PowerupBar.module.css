@@ -1,0 +1,10 @@
+.PowerupBar {
+  z-index: 126;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  opacity: 1;
+  background-color: red;
+  transition: opacity 0.3s; }
+  .PowerupBar.isVisible {
+    opacity: 1; }
