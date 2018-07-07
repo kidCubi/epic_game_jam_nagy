@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import styles from './App.scss';
 
 import NumberTile from './components/NumberTile/NumberTile'
+import Header from './components/Header/Header'
 
 import { connect } from 'react-redux';
 
@@ -48,9 +49,12 @@ class App extends Component {
         //If you want to add only one, it's simple to do like so : className={styles.myClassName}
         return (
             <div>
-                <NumberTile/>
-                <NumberTile/>
-                <NumberTile/>
+                <Header/>
+                <div className={classes}>
+                    <NumberTile/>
+                    <NumberTile/>
+                    <NumberTile/>
+                </div>
             </div>
 
         );

@@ -1,0 +1,19 @@
+.Header {
+  width: 100%;
+  height: 60px; }
+
+.InfoWrapper {
+  display: inline-flex;
+  align-items: center;
+  min-width: 100px;
+  height: 52px;
+  margin-right: 8px;
+  background: white;
+  color: #1A00FF; }
+
+.Info {
+  flex-grow: 1;
+  padding-left: 6px; }
+
+.InfoCaption {
+  padding-right: 7px; }

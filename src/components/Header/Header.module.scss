@@ -1,0 +1,25 @@
+@import '../../sass/helpers/variables';
+
+.Header {
+    width: 100%;
+    height: $headerHeight;
+}
+
+.InfoWrapper {
+    display: inline-flex;
+    align-items: center;
+    min-width: 100px;
+    height: $headerHeight - $bodyPadding;
+    margin-right: $bodyPadding;
+    background: white;
+    color: $c-purple;
+}
+
+.Info {
+    flex-grow: 1;
+    padding-left: 6px;
+}
+
+.InfoCaption {
+    padding-right: 7px;
+}
