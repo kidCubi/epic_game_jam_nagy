@@ -1,9 +1,5 @@
 .PowerupItem {
-  z-index: 12;
-  position: absolute;
-  bottom: 0;
   display: block;
-  width: 20%;
   height: 50px;
   background: grey;
   opacity: 0; }

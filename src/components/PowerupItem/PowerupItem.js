@@ -42,10 +42,6 @@ class PowerupItem extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log('prev points');
-        console.log(prevProps);
-        console.log('triggerVisibility');
-        console.log(this.state.triggerVisibility);
         if( prevProps.totalPoints === this.state.triggerActive &&
             !this.state.isActive
         ) {
@@ -67,10 +63,8 @@ class PowerupItem extends Component {
             {[styles.isActive]: this.state.isActive }
         );
 
-
-
         return (
-            <div className={stylingClasses} onClick={this.props.autoIncrement}>
+            <div className={stylingClasses} onClick={this.props.modifyParent}>
                 {/*<p onClick={this.props.increaseMultiplierValue}>{this.state.test}</p>*/}
                 {this.state.caption}
             </div>

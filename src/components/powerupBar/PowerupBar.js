@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import styles from './PowerupBar.module.scss';
+import classNames from 'classnames';
 
 import { connect } from 'react-redux';
 //import a redux mutator
 //import { setAgendaLoaded } from '../../redux/actions/index'
+import PowerupItemIncrementMultiplier from './../PowerupItem/PowerupItemIncrementMultiplier/PowerupItemIncrementMultiplier'
+import PowerupItemAutoIncrement from './../PowerupItem/PowerupItemAutoIncrement/PowerupItemAutoIncrement'
+import PowerupItemDecreaseAutoIncrementDuration from './../PowerupItem/PowerupItemDecreaseAutoIncrementDuration/PowerupItemDecreaseAutoIncrementDuration'
+
 
 const mapState = state => ({
     app: state.app,
@@ -15,47 +20,66 @@ const mapActions = dispatch => ({
 });
 
 class PowerupBar extends Component {
-    constructor() {
+    constructor(parent) {
         super();
         this.state = {
-            numberCount: 1
+            isVisible: false
         };
 
-        this.powerupList = [
-            { incrementMultiplier : "fkfkfk" },
-            { autoIncrement : "fkfkfk" },
-            { divideField : "fkfkfk" }
-        ];
-        this.newPowerupIntroductionPoints = [
-            { incrementMultiplier : 42 },
-            { autoIncrement : 233 },
-            { divideField : 1111 }
-        ];
 
-
-        this.showNewPowerup = this.showNewPowerup.bind(this);
-        this.sellNewPowerup = this.sellNewPowerup.bind(this);
-        this.activateNewPowerup = this.activateNewPowerup.bind(this);
     }
 
     componentDidMount() {
         console.log('PowerupBar')
     }
 
-    activateNewPowerup() {
-        should make
-        let nextPowerup = this.powerupList
-        let count = this.state.numberCount;
-        count++;
+    componentDidUpdate(prevProps) {
+        // if( prevProps.isTileHovered === true &&
+        //     !this.state.isVisible
+        // ) {
+        //     this.makeActive();
+        // }
+        //
+        // if( prevProps.isTileHovered === false &&
+        //     this.state.isVisible
+        // ) {
+        //     this.makeInActive();
+        // }
+    }
+
+    makeActive() {
         this.setState(state => ({
-            numberCount: count
+            isActive: true
         }));
     }
 
+    makeInActive() {
+        this.setState(state => ({
+            isActive: false
+        }));
+    }
+
+
     render() {
+        const stylingClasses = classNames(
+            styles.PowerupBar,
+            {[styles.isVisible]: this.state.isVisible}
+        );
+
         return (
-            <div className={styles.Wrapper} onClick={this.incrementTile}>
-                <span>{this.state.numberCount}</span>
+            <div className={stylingClasses} onClick={this.incrementTile}>
+                <PowerupItemIncrementMultiplier
+                    modifyParent={this.props.increaseMultiplierValue.bind(this)}
+                    totalPoints={this.props.totalPoints}
+                />
+                <PowerupItemAutoIncrement
+                    modifyParent={this.props.autoIncrement.bind(this)}
+                    totalPoints={this.props.totalPoints}
+                />
+                <PowerupItemDecreaseAutoIncrementDuration
+                    modifyParent={this.props.decreaseAutoincrementDuration.bind(this)}
+                    totalPoints={this.props.totalPoints}
+                />
             </div>
         );
     }
