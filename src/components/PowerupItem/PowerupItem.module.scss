@@ -16,6 +16,10 @@
         opacity: 1;
         pointer-events: auto;
     }
+
+    &.isActive:hover {
+        cursor: pointer;
+    }
 }
 
 .price {
