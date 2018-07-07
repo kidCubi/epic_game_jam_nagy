@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { TweenLite } from 'gsap';
 import styles from './NumberTile.module.scss';
 
-import ChildComponent from './../ChildComponent/ChildComponent'
-import PowerupItem from './../PowerupItem/PowerupItem'
+import PowerupItemIncrementMultiplier from './../PowerupItem/PowerupItemIncrementMultiplier/PowerupItemIncrementMultiplier'
+
 
 import { connect } from 'react-redux';
 //import a redux mutator
@@ -131,14 +131,12 @@ class NumberTile extends Component {
                     <span className={styles.TotalPoints}>{this.state.totalPoints}</span>
                 </div>
                 <div className={styles.ProgressBar} ref={node => this.refProgressBar = node}></div>
-                <ChildComponent
+                <PowerupItemIncrementMultiplier
                     increaseMultiplierValue={this.increaseMultiplierValue.bind(this)}
-                    autoIncrement={this.autoIncrement.bind(this)}
-                />
-                <PowerupItem
                     autoIncrement={this.autoIncrement.bind(this)}
                     totalPoints={this.state.totalPoints}
                 />
+
 
             </div>
         );
@@ -147,6 +145,11 @@ class NumberTile extends Component {
 
 export default connect(mapState, mapActions)(NumberTile);
 
-// <ChildComponent2
+// <PowerupItemIncrementMultiplier2
 //     decreaseAutoincrementDuration={this.decreaseAutoincrementDuration.bind(this)}
+// // />
+//
+// <PowerupItem
+//     autoIncrement={this.autoIncrement.bind(this)}
+//     totalPoints={this.state.totalPoints}
 // />
