@@ -13,7 +13,6 @@ class PowerupItem extends Component {
             isActive: false,
             isSold:false,
             triggerVisibility: 1,
-            triggerActive: 2,
             price: 1,
             caption: "this is the caption"
         }
@@ -31,10 +30,20 @@ class PowerupItem extends Component {
         }));
     }
 
-    makeSold() {
+    makeInVisible() {
         this.setState(state => ({
-            isSold: true
+            isVisible: false
         }));
+    }
+
+    makeInActive() {
+        this.setState(state => ({
+            isActive: false
+        }));
+    }
+
+    buyPowerup() {
+        this.props.totalPoints
     }
 
     componentDidMount() {
@@ -43,15 +52,25 @@ class PowerupItem extends Component {
 
     componentDidUpdate(prevProps) {
         if(prevProps.totalPoints !== this.props.totalPoints) {
-            if( this.props.totalPoints === this.state.triggerActive && !this.state.isActive) {
+            if( this.props.totalPoints >= this.state.price && !this.state.isActive) {
                 this.makeActive();
             }
 
             if(this.props.totalPoints === this.state.triggerVisibility && !this.state.isVisible) {
                 this.makeVisible();
             }
+
+            if( this.props.totalPoints <= this.state.price && this.state.isActive) {
+                this.makeInActive();
+            }
+
         }
 
+    }
+
+    handleClick() {
+        this.props.modifyParent();
+        this.props.decreaseTotalPoints(this.state.price);
     }
 
     render() {
@@ -63,7 +82,7 @@ class PowerupItem extends Component {
         );
 
         return (
-            <div className={stylingClasses} onClick={this.props.modifyParent}>
+            <div className={stylingClasses} onClick={this.handleClick.bind(this)}>
                 {/*<p onClick={this.props.increaseMultiplierValue}>{this.state.test}</p>*/}
                 {this.state.caption}
             </div>

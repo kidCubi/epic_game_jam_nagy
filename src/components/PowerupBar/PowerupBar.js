@@ -32,8 +32,6 @@ class PowerupBar extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        //console.log(`prev props ${prevProps.isTileHovered}`)
-        //console.log(`actual props ${this.props.isTileHovered}`)
         if(prevProps.isTileHovered !== this.props.isTileHovered) {
             if(this.props.isTileHovered && !this.state.isVisible) {
                 this.setState(state => ({
@@ -59,14 +57,17 @@ class PowerupBar extends Component {
                 <PowerupItemIncrementMultiplier
                     modifyParent={this.props.increaseMultiplierValue}
                     totalPoints={this.props.totalPoints}
+                    decreaseTotalPoints={this.props.decreaseTotalPoints}
                 />
                 <PowerupItemAutoIncrement
                     modifyParent={this.props.autoIncrement}
                     totalPoints={this.props.totalPoints}
+                    decreaseTotalPoints={this.props.decreaseTotalPoints}
                 />
                 <PowerupItemDecreaseAutoIncrementDuration
                     modifyParent={this.props.decreaseAutoincrementDuration}
                     totalPoints={this.props.totalPoints}
+                    decreaseTotalPoints={this.props.decreaseTotalPoints}
                 />
             </div>
         );

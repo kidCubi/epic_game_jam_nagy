@@ -121,6 +121,16 @@ class NumberTile extends Component {
         }));
     }
 
+    decreaseTotalPoints(cost) {
+        let totalPoints = this.state.totalPoints;
+        totalPoints -= cost;
+        this.setState(state => ({
+            totalPoints: totalPoints
+        }));
+
+
+    }
+
     raf() {
         this.rafId = requestAnimationFrame(this.raf);
     }
@@ -139,6 +149,14 @@ class NumberTile extends Component {
                     <span className={styles.TotalPoints}>{this.state.totalPoints}</span>
                 </div>
                 <div className={styles.ProgressBar} ref={node => this.refProgressBar = node}></div>
+                <PowerupBar
+                    increaseMultiplierValue={this.increaseMultiplierValue.bind(this)}
+                    decreaseAutoincrementDuration={this.decreaseAutoincrementDuration.bind(this)}
+                    autoIncrement={this.autoIncrement.bind(this)}
+                    decreaseTotalPoints={this.decreaseTotalPoints.bind(this)}
+                    totalPoints={this.state.totalPoints}
+                    isTileHovered={this.state.isTileHovered}
+                />
 
             </div>
         );

@@ -13,13 +13,10 @@ class PowerupItemIncrementMultiplier extends PowerupItem {
 
     init() {
         this.setState(state => ({
-            price: 100
+            price: 5
         }));
         this.setState(state => ({
-            triggerVisibility: 1
-        }));
-        this.setState(state => ({
-            triggerActive: 2
+            triggerVisibility: 5
         }));
         this.setState(state => ({
             caption: 'multiply increment value'
