@@ -32,7 +32,8 @@ class Grid extends Component {
                    colStart: 1,
                    rowStart: 1,
                    colSpan: 16,
-                   rowSpan: 16
+                   rowSpan: 16,
+                   fontSize: 7
                }
 
            ]
@@ -41,7 +42,7 @@ class Grid extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(width, height, colStart, rowStart, colSpan, rowSpan) {
+    handleClick(width, height, colStart, rowStart, colSpan, rowSpan, fontSize) {
 
         // console.log(width)
         // console.log(height)
@@ -53,7 +54,8 @@ class Grid extends Component {
             colStart : colStart,
             rowStart : rowStart,
             colSpan : colSpan,
-            rowSpan : rowSpan
+            rowSpan : rowSpan,
+            fontSize : fontSize
         }
         this.setState({
             items: [...this.state.items, newElement]
@@ -77,6 +79,7 @@ class Grid extends Component {
                         rowStart={item.rowStart}
                         colSpan={item.colSpan}
                         rowSpan={item.rowSpan}
+                        fontSize={item.fontSize}
                         key={index}
                         gameSetTotalPoints={this.props.gameSetTotalPoints}
                         gameSetTotalSpeed={this.props.gameSetTotalSpeed}

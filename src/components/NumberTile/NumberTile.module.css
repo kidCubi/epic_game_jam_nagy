@@ -16,7 +16,8 @@
   grid-column: 1/span 17;
   grid-row: 1/span 17;
   cursor: pointer;
-  background-color: #97FFFF; }
+  background-color: #97FFFF;
+  font-size: 7vw; }
 
 .Wrapper {
   z-index: 11;
@@ -26,21 +27,21 @@
 
 .ProgressValue {
   position: absolute;
-  bottom: 30px;
-  margin-left: 30px;
+  bottom: 3%;
+  margin-left: 3%;
   color: #1A00FF;
-  font-size: 130px;
+  font-size: 1.3em;
   font-weight: 700; }
   .ProgressValue .Percentage {
-    font-size: 40px; }
+    font-size: 0.4em; }
 
 .TopLeft {
   border: 2px solid #1A00FF;
-  width: 30%;
+  width: 0.9em;
   max-width: 100px;
   position: absolute;
-  margin-top: 30px;
-  margin-left: 30px;
+  margin-top: 3%;
+  margin-left: 3%;
   font-weight: 400; }
   .TopLeft .Multiplier {
     text-align: center;
@@ -48,14 +49,14 @@
     padding: 0.2em 0;
     background-color: #1A00FF;
     color: #FFFFFF;
-    font-size: 42px;
+    font-size: 0.42em;
     word-wrap: break-word; }
   .TopLeft .TotalPoints {
     display: block;
     background-color: #FFFFFF;
     color: #1A00FF;
     padding: 0.5em 1em;
-    font-size: 18px;
+    font-size: 0.18em;
     word-wrap: break-word; }
 
 .ProgressBar {
@@ -71,10 +72,10 @@
 
 .TopRight {
   position: absolute;
-  margin-top: 30px;
-  right: 30px;
+  margin-top: 3%;
+  right: 3%;
   color: #1A00FF;
-  font-size: 18px; }
+  font-size: 0.18em; }
   .TopRight .SpeedMultiplier {
     font-weight: 100; }
     .TopRight .SpeedMultiplier span {

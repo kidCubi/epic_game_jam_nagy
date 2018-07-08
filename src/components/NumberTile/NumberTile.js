@@ -37,6 +37,7 @@ class NumberTile extends Component {
 
         this.gridRowsPlusOne = 17;
         this.gridColumnsPlusOne = 17;
+        this.fontSize = 7;//vw
 
 
         this.rafId = null;
@@ -50,6 +51,9 @@ class NumberTile extends Component {
 
     componentDidMount() {
         console.log(this)
+
+        this.fontSize = this.props.fontSize;
+
         this.width = this.props.width;
         this.height = this.props.height;
 
@@ -69,6 +73,7 @@ class NumberTile extends Component {
 
         this.refWrapper.style.gridColumn = `${this.colStart} / span ${this.colSpan}`;
         this.refWrapper.style.gridRow = `${this.rowStart} / span ${this.rowSpan}`;
+        this.refWrapper.style.fontSize = `${this.fontSize}vw`;
     }
 
     mouseEnter() {
@@ -168,6 +173,7 @@ class NumberTile extends Component {
     splitField() {
         if(this.widthPx > this.heightPx) {
             this.updateWidth();
+
             this.nextFieldColStart = this.colStart + this.colSpan;
             this.nextFieldRowStart = this.rowStart;
 
@@ -183,7 +189,8 @@ class NumberTile extends Component {
             this.nextFieldColStart,
             this.nextFieldRowStart,
             this.colSpan,
-            this.rowSpan
+            this.rowSpan,
+            this.fontSize
         );
     }
 
@@ -191,8 +198,10 @@ class NumberTile extends Component {
         this.width /= 2;
         this.widthPx /= 2;
         this.colSpan /= 2;
+        this.fontSize /= 1.2;
 
         this.refWrapper.style.gridColumn = `${this.colStart} / span ${this.colSpan}`;
+        this.refWrapper.style.fontSize = `${this.fontSize}vw`;
 
     }
 
