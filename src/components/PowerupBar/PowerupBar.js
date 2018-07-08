@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 //import { setAgendaLoaded } from '../../redux/actions/index'
 import PowerupItemIncrementMultiplier from './../PowerupItem/PowerupItemIncrementMultiplier/PowerupItemIncrementMultiplier'
 import PowerupItemAutoIncrement from './../PowerupItem/PowerupItemAutoIncrement/PowerupItemAutoIncrement'
+import InsertNewField from './../PowerupItem/InsertNewField/InsertNewField'
 
 
 const mapState = state => ({
@@ -55,6 +56,12 @@ class PowerupBar extends Component {
                     decreaseTotalPoints={this.props.decreaseTotalPoints}
                 />
                 <PowerupItemAutoIncrement
+                    modifyParent={this.props.autoIncrement}
+                    modifyParent2={this.props.decreaseAutoincrementDuration}
+                    totalPoints={this.props.totalPoints}
+                    decreaseTotalPoints={this.props.decreaseTotalPoints}
+                />
+                <InsertNewField
                     modifyParent={this.props.autoIncrement}
                     modifyParent2={this.props.decreaseAutoincrementDuration}
                     totalPoints={this.props.totalPoints}

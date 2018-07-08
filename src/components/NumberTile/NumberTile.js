@@ -28,7 +28,11 @@ class NumberTile extends Component {
             speedMultiplier: 1,
             totalPoints: 0,
             autoIncrementDuration: 1000,
-            isTileHovered: false
+            isTileHovered: false,
+            width: 100,
+            height: 100,
+            widthPx: 1,
+            heightPx: 1
         };
 
         this.rafId = null;
@@ -43,6 +47,19 @@ class NumberTile extends Component {
     componentDidMount() {
         this.refWrapper.addEventListener('mouseenter', this.mouseEnter.bind(this));
         this.refWrapper.addEventListener('mouseleave', this.mouseLeave.bind(this));
+        this.init();
+    }
+
+    init() {
+        let heightPx = window.innHeight - 60;
+        let widthPx = window.innerWidth - 8 * 2;
+        this.setState(state => ({
+            widthPx: widthPx
+        }));
+
+        this.setState(state => ({
+            heightPx: heightPx
+        }));
     }
 
     mouseEnter() {
@@ -139,6 +156,42 @@ class NumberTile extends Component {
         this.refWrapper.removeEventListener('mouseleave', this.mouseLeave);
     }
 
+    updateWidth() {
+        console.log('updating numberTile dimension');
+        let width = this.state.width;
+        width /= 2;
+        this.setState(state => ({
+            width: width
+        }));
+    }
+
+    updateWidthPx() {
+        console.log('updating numberTile dimension');
+        let widthPx = this.state.widthPx;
+        widthPx /= 2;
+        this.setState(state => ({
+            widthPx: widthPx
+        }));
+    }
+
+    updateHeight() {
+        console.log('updating numberTile dimension');
+        let height = this.state.height;
+        height /= 2;
+        this.setState(state => ({
+            height: height
+        }));
+    }
+
+    updateHeightPx() {
+        console.log('updating numberTile dimension');
+        let heightPx = this.state.heightPx;
+        heightPx /= 2;
+        this.setState(state => ({
+            heightPx: heightPx
+        }));
+    }
+
     render() {
         return (
             <div className={styles.Container} ref={node => this.refWrapper = node} >
@@ -171,6 +224,12 @@ class NumberTile extends Component {
                     decreaseAutoincrementDuration={this.decreaseAutoincrementDuration.bind(this)}
                     autoIncrement={this.autoIncrement.bind(this)}
                     decreaseTotalPoints={this.decreaseTotalPoints.bind(this)}
+                    widthPx={this.state.widthPx}
+                    heightPx={this.state.heightPx}
+                    updateNumerTileWidth={this.updateWidth.bind(this)}
+                    updateNumerTileWidthPx={this.updateWidthPx.bind(this)}
+                    updateNumerTileHeight={this.updateHeight.bind(this)}
+                    updateNumerTileHeightPx={this.updateHeightPx.bind(this)}
                     totalPoints={this.state.totalPoints}
                     isTileHovered={this.state.isTileHovered}
                 />
