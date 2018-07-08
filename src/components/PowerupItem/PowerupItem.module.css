@@ -11,7 +11,6 @@
    BREAKPOINTS
    ======================================================================== */
 .PowerupItem {
-  display: block;
   position: relative;
   height: 10%;
   background: #1A00FF;
@@ -21,14 +20,17 @@
   font-size: 0.19em;
   pointer-events: none;
   border: 2px solid #1A00FF;
-  color: #FFFFFF; }
+  color: #FFFFFF;
+  display: none; }
   .PowerupItem:last-of-type {
     margin-bottom: 0; }
   .PowerupItem:hover {
     background: #1500cc; }
   .PowerupItem.isVisible {
+    display: block !important;
     opacity: 0.5; }
   .PowerupItem.isActive {
+    display: block !important;
     opacity: 1;
     pointer-events: auto; }
   .PowerupItem.isActive:hover {

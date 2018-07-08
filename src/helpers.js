@@ -1,7 +1,7 @@
 //Helper functions
 
-export function randNum(num) {
-    return Math.floor(Math.random() * num) + 1;
+export function randNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 export function uid () {

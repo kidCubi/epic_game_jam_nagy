@@ -2,7 +2,6 @@
 @import '../../sass/helpers/variables';
 
 .PowerupItem {
-    display: block;
     position: relative;
     height: 10%;
     background: $c-purple;
@@ -13,6 +12,7 @@
     pointer-events: none;
     border: 2px solid $c-purple;
     color: $c-white;
+    display: none;
 
     &:last-of-type {
         margin-bottom: 0;
@@ -23,10 +23,12 @@
     }
 
     &.isVisible {
+        display: block !important;
         opacity: 0.5;
     }
 
     &.isActive {
+        display: block !important;
         opacity: 1;
         pointer-events: auto;
     }

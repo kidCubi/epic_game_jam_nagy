@@ -13,7 +13,14 @@
   flex-direction: column;
   justify-content: center;
   padding: 20px;
+  transform: scale(0);
+  &.isVisible {
+    transition: transform 0.3s $easeOutBack;
+    transform: scale(1);
+  }
 }
+
+
 
 
 .DialogBoxTop {
