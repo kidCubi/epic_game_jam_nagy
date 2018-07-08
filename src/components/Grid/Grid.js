@@ -82,7 +82,7 @@ class Grid extends Component {
                         gameSetTotalSpeed={this.props.gameSetTotalSpeed}
                         gridNewTile={this.handleClick.bind(this)}
                     />
-                )};
+                )}
             </div>
         );
     }

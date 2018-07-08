@@ -70,6 +70,7 @@ class App extends Component {
         return (
             <div>
                 <Header
+                    gameSetTotalPoints={this.setTotalPoints.bind(this)}
                     gameTotalPoints={this.state.totalPoints}
                     gameTotalSpeed={this.state.totalSpeed}
                 />

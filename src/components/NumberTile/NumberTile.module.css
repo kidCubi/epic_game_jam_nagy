@@ -11,7 +11,6 @@
    BREAKPOINTS
    ======================================================================== */
 .Container {
-  outline: 1px solid;
   position: relative;
   display: inline-block;
   grid-column: 1/span 17;
@@ -27,22 +26,21 @@
 
 .ProgressValue {
   position: absolute;
-  bottom: 5%;
-  left: 5%;
-  margin: auto;
+  bottom: 30px;
+  margin-left: 30px;
   color: #1A00FF;
-  font-size: 7vw;
+  font-size: 130px;
   font-weight: 700; }
   .ProgressValue .Percentage {
-    font-size: 3vw; }
+    font-size: 40px; }
 
 .TopLeft {
   border: 2px solid #1A00FF;
   width: 30%;
   max-width: 100px;
   position: absolute;
-  top: 2%;
-  left: 5%;
+  margin-top: 30px;
+  margin-left: 30px;
   font-weight: 400; }
   .TopLeft .Multiplier {
     text-align: center;
@@ -50,14 +48,14 @@
     padding: 0.2em 0;
     background-color: #1A00FF;
     color: #FFFFFF;
-    font-size: 2vw;
+    font-size: 42px;
     word-wrap: break-word; }
   .TopLeft .TotalPoints {
     display: block;
     background-color: #FFFFFF;
     color: #1A00FF;
     padding: 0.5em 1em;
-    font-size: 1vw;
+    font-size: 18px;
     word-wrap: break-word; }
 
 .ProgressBar {
@@ -73,10 +71,10 @@
 
 .TopRight {
   position: absolute;
-  top: 2%;
-  right: 5%;
+  margin-top: 30px;
+  right: 30px;
   color: #1A00FF;
-  font-size: 1.5vw; }
+  font-size: 18px; }
   .TopRight .SpeedMultiplier {
     font-weight: 100; }
     .TopRight .SpeedMultiplier span {
