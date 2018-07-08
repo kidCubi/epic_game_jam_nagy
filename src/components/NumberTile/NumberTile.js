@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { TweenLite, Circ, Linear } from 'gsap';
+import { TweenLite } from 'gsap/TweenLite';
+import {Circ, Linear} from 'gsap/EasePack';
 import throttle from 'lodash.throttle';
 
 import styles from './NumberTile.module.scss';
