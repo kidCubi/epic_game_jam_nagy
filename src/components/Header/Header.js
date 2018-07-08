@@ -71,6 +71,7 @@ class Header extends Component {
 
                 {this.state.dialogBoxes.map((item, index) =>
                     <DialogBox
+                        gameSetTotalPoints={this.props.gameSetTotalPoints}
                         key={index}
                         x={item.y}
                         y={item.x}

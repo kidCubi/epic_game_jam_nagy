@@ -5,7 +5,7 @@ export const dialogueMilestones = [
         img: "./assets/robot.svg",
         text: "Salutations, pirate de l’espace. Je vois que vous cherchez à piller cette planète... Hmm... J’ai peut-être quelque chose pour vous. Une foreuse BX7.",
         choices: [
-            {content: "Buy drilling machine BX7", price: "10000"},
+            {content: "Buy drilling machine BX7", price: "2000"},
             {content: "No thanks", isClosing: true}
         ],
         answers: [

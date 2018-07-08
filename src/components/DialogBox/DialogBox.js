@@ -58,8 +58,8 @@ class DialogBox extends Component {
     }
 
     decrementTotalPoints() {
+        this.props.gameSetTotalPoints(-1 * this.state.itemPrice);
         this.refDialogBox.remove();
-        this.props.totalPoints -= this.state.itemPrice;
     }
 
     render() {
