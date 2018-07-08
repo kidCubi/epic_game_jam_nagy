@@ -25,20 +25,42 @@ class Grid extends Component {
 
         this.state = {
            items: [
-               {tile: uid()}
+               {
+                   tile: uid(),
+                   width: 100,
+                   height: 100,
+                   colStart: 1,
+                   rowStart: 1,
+                   colSpan: 16,
+                   rowSpan: 16
+               }
+
            ]
         };
 
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick() {
+    handleClick(width, height, colStart, rowStart, colSpan, rowSpan) {
 
-        let newElement = {tile: uid()};
+        // console.log(width)
+        // console.log(height)
+
+        let newElement = {
+            tile: uid(),
+            width: width,
+            height: height,
+            colStart : colStart,
+            rowStart : rowStart,
+            colSpan : colSpan,
+            rowSpan : rowSpan
+        }
         this.setState({
             items: [...this.state.items, newElement]
         });
-        
+
+        console.log(this.state)
+
     }
 
 
@@ -47,12 +69,18 @@ class Grid extends Component {
 
         return (
             <div className={styles.Grid}>
-                <button onClick={this.handleClick}>Add more</button>
                 {items.map((item, index) =>
                     <NumberTile
+                        width={item.width}
+                        height={item.height}
+                        colStart={item.colStart}
+                        rowStart={item.rowStart}
+                        colSpan={item.colSpan}
+                        rowSpan={item.rowSpan}
                         key={index}
                         gameSetTotalPoints={this.props.gameSetTotalPoints}
                         gameSetTotalSpeed={this.props.gameSetTotalSpeed}
+                        gridNewTile={this.handleClick.bind(this)}
                     />
                 )};
             </div>

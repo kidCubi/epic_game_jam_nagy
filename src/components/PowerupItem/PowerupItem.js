@@ -9,6 +9,7 @@ class PowerupItem extends Component {
     constructor() {
         super();
         this.state = {
+            type: '',
             isChangingBehaviourAfterFirstClick: false,
             stage: 1,
             isVisible: false,
@@ -70,16 +71,36 @@ class PowerupItem extends Component {
 
     }
 
-    handleClick() {
+    triggerFunctionInParent() {
+        console.log('');
+    }
 
-        if( this.state.stage === 2 &&
-            this.state.isChangingBehaviourAfterFirstClick
-        ) {
-            this.props.modifyParent2();
-        } else {
-            this.props.modifyParent();
+    handleClick() {
+        console.log('handleClick');
+        console.log('this.state.type ' + this.state.type);
+
+        switch(this.state.type) {
+            case 'IncreaseMultiplier':
+                this.triggerFunctionInParent = this.props.increaseMultiplierValue;
+                break;
+            case 'AutoIncrement':
+                if(this.state.stage === 1) {
+                    this.triggerFunctionInParent = this.props.autoIncrement;
+                } else {
+                    this.triggerFunctionInParent = this.props.decreaseAutoincrementDuration;
+                }
+                break;
+            case 'InsertNewField':
+                this.triggerFunctionInParent = this.props.splitTriggeringField;
+                break;
+            default:
+                console.log('no match');
         }
 
+        this.triggerFunctionInParent();
+
+
+        //ALL POWERUPS SHARE THESE METHODS
         this.props.decreaseTotalPoints(-1 * this.state.price);
         this.increasePrice();
 

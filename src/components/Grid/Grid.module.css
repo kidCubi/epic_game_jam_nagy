@@ -1,2 +1,6 @@
 .Grid {
-  height: calc(100vh - 60px); }
+  height: calc(100vh - 60px - 2 * 8px);
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  grid-gap: 5px; }

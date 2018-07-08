@@ -29,12 +29,16 @@ class NumberTile extends Component {
             speedMultiplier: 1,
             totalPoints: 0,
             autoIncrementDuration: 1000,
-            isTileHovered: false,
-            width: 100,
-            height: 100,
-            widthPx: 1,
-            heightPx: 1
+            isTileHovered: false
         };
+
+
+        this.widthPx = 1;
+        this.heightPx = 1;
+
+        this.gridRowsPlusOne = 17;
+        this.gridColumnsPlusOne = 17;
+
 
         this.rafId = null;
         this.canClick = true;
@@ -46,21 +50,26 @@ class NumberTile extends Component {
     }
 
     componentDidMount() {
+        console.log(this)
+        this.width = this.props.width;
+        this.height = this.props.height;
+
+        this.colStart = this.props.colStart;
+        this.rowStart = this.props.rowStart;
+        this.colSpan = this.props.colSpan;
+        this.rowSpan = this.props.rowSpan;
+
         this.refWrapper.addEventListener('mouseenter', this.mouseEnter.bind(this));
         this.refWrapper.addEventListener('mouseleave', this.mouseLeave.bind(this));
         this.init();
     }
 
     init() {
-        let heightPx = window.innHeight - 60;
-        let widthPx = window.innerWidth - 8 * 2;
-        this.setState(state => ({
-            widthPx: widthPx
-        }));
+        this.heightPx = window.innerHeight * this.height - 60;
+        this.widthPx = window.innerWidth * this.width - 8 * 2;
 
-        this.setState(state => ({
-            heightPx: heightPx
-        }));
+        this.refWrapper.style.gridColumn = `${this.colStart} / span ${this.colSpan}`;
+        this.refWrapper.style.gridRow = `${this.rowStart} / span ${this.rowSpan}`;
     }
 
     mouseEnter() {
@@ -162,41 +171,45 @@ class NumberTile extends Component {
         this.refWrapper.removeEventListener('mouseleave', this.mouseLeave);
     }
 
-    updateWidth() {
-        console.log('updating numberTile dimension');
-        let width = this.state.width;
-        width /= 2;
-        this.setState(state => ({
-            width: width
-        }));
+    splitField() {
+        if(this.widthPx > this.heightPx) {
+            this.updateWidth();
+            this.nextFieldColStart = this.colStart + this.colSpan;
+            this.nextFieldRowStart = this.rowStart;
+
+        } else {
+            this.updateHeight();
+            this.nextFieldRowStart = this.rowStart + this.rowSpan;
+            this.nextFieldColStart = this.colStart;
+        }
+
+        this.props.gridNewTile(
+            this.width,
+            this.height,
+            this.nextFieldColStart,
+            this.nextFieldRowStart,
+            this.colSpan,
+            this.rowSpan
+        );
     }
 
-    updateWidthPx() {
-        console.log('updating numberTile dimension');
-        let widthPx = this.state.widthPx;
-        widthPx /= 2;
-        this.setState(state => ({
-            widthPx: widthPx
-        }));
+    updateWidth() {
+        this.width /= 2;
+        this.widthPx /= 2;
+        this.colSpan /= 2;
+
+        this.refWrapper.style.gridColumn = `${this.colStart} / span ${this.colSpan}`;
+
     }
 
     updateHeight() {
-        console.log('updating numberTile dimension');
-        let height = this.state.height;
-        height /= 2;
-        this.setState(state => ({
-            height: height
-        }));
+        this.height /= 2;
+        this.heightPx /= 2;
+        this.rowSpan /= 2;
+
+        this.refWrapper.style.gridRow = `${this.rowStart} / span ${this.rowSpan}`;
     }
 
-    updateHeightPx() {
-        console.log('updating numberTile dimension');
-        let heightPx = this.state.heightPx;
-        heightPx /= 2;
-        this.setState(state => ({
-            heightPx: heightPx
-        }));
-    }
 
     render() {
         return (
@@ -230,12 +243,7 @@ class NumberTile extends Component {
                     decreaseAutoincrementDuration={this.decreaseAutoincrementDuration.bind(this)}
                     autoIncrement={this.autoIncrement.bind(this)}
                     decreaseTotalPoints={this.decreaseTotalPoints.bind(this)}
-                    widthPx={this.state.widthPx}
-                    heightPx={this.state.heightPx}
-                    updateNumerTileWidth={this.updateWidth.bind(this)}
-                    updateNumerTileWidthPx={this.updateWidthPx.bind(this)}
-                    updateNumerTileHeight={this.updateHeight.bind(this)}
-                    updateNumerTileHeightPx={this.updateHeightPx.bind(this)}
+                    splitTriggeringField={this.splitField.bind(this)}
                     totalPoints={this.state.totalPoints}
                     isTileHovered={this.state.isTileHovered}
                 />

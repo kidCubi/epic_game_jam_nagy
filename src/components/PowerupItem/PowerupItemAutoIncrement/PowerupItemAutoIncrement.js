@@ -12,6 +12,9 @@ class PowerupItemAutoIncrement extends PowerupItem {
 
     init() {
         this.setState(state => ({
+            type: 'AutoIncrement'
+        }));
+        this.setState(state => ({
             isChangingBehaviourAfterFirstClick: true
         }));
         this.setState(state => ({

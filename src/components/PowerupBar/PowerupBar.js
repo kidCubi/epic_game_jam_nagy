@@ -51,19 +51,19 @@ class PowerupBar extends Component {
         return (
             <div className={stylingClasses} onClick={this.incrementTile}>
                 <PowerupItemIncrementMultiplier
-                    modifyParent={this.props.increaseMultiplierValue}
+                    increaseMultiplierValue={this.props.increaseMultiplierValue}
                     totalPoints={this.props.totalPoints}
                     decreaseTotalPoints={this.props.decreaseTotalPoints}
                 />
                 <PowerupItemAutoIncrement
-                    modifyParent={this.props.autoIncrement}
-                    modifyParent2={this.props.decreaseAutoincrementDuration}
+                    autoIncrement={this.props.autoIncrement}
+                    decreaseAutoincrementDuration={this.props.decreaseAutoincrementDuration}
                     totalPoints={this.props.totalPoints}
                     decreaseTotalPoints={this.props.decreaseTotalPoints}
                 />
                 <InsertNewField
-                    modifyParent={this.props.autoIncrement}
-                    modifyParent2={this.props.decreaseAutoincrementDuration}
+                    insertNewField={this.props.insertNewField}
+                    splitTriggeringField={this.props.splitTriggeringField}
                     totalPoints={this.props.totalPoints}
                     decreaseTotalPoints={this.props.decreaseTotalPoints}
                 />

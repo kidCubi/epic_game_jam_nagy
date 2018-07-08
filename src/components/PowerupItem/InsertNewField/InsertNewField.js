@@ -13,10 +13,13 @@ class InsertNewField extends PowerupItem {
 
     init() {
         this.setState(state => ({
-            price: 145
+            type: 'InsertNewField'
         }));
         this.setState(state => ({
-            triggerVisibility: 55
+            price: 1
+        }));
+        this.setState(state => ({
+            triggerVisibility: 1
         }));
         this.setState(state => ({
             caption: 'New mining field'
@@ -26,18 +29,6 @@ class InsertNewField extends PowerupItem {
     componentDidMount() {
         this.init();
     }
-
-    checkFieldDimensions() {
-        if(this.props.widthPx > this.props.heightPx) {
-            this.props.updateNumerTileWidth();
-            this.props.updateNumerTileWidthPx();
-
-        } else {
-            this.props.updateNumerTileHeight();
-            this.props.updateNumerTileHeightPx();
-        }
-    }
-
 
 }
 

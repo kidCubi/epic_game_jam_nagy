@@ -13,6 +13,9 @@ class PowerupItemIncrementMultiplier extends PowerupItem {
 
     init() {
         this.setState(state => ({
+            type: 'IncreaseMultiplier'
+        }));
+        this.setState(state => ({
             price: 5
         }));
         this.setState(state => ({

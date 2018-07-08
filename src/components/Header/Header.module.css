@@ -6,7 +6,7 @@
   display: inline-flex;
   align-items: center;
   min-width: 100px;
-  height: 72px;
+  height: 52px;
   margin-right: 8px;
   background: white;
   color: #1A00FF;
@@ -14,7 +14,7 @@
 
 .Info {
   flex-grow: 1;
-  padding: 10px 20px;
+  padding: 0 20px;
   font-size: 42px;
   font-weight: 700; }
 

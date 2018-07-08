@@ -14,17 +14,15 @@
   outline: 1px solid;
   position: relative;
   display: inline-block;
-  height: 100%;
-  width: 100%;
+  grid-column: 1/span 17;
+  grid-row: 1/span 17;
   cursor: pointer;
   background-color: #97FFFF; }
 
 .Wrapper {
   z-index: 11;
-  height: inherit;
-  width: inherit;
-  display: flex;
-  flex-direction: column;
+  height: 100%;
+  width: 100%;
   position: relative; }
 
 .ProgressValue {
@@ -69,8 +67,8 @@
   top: 0;
   left: 0;
   position: absolute;
-  height: inherit;
-  width: inherit;
+  height: 100%;
+  width: 100%;
   background-color: #64ffff; }
 
 .TopRight {

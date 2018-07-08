@@ -1,5 +1,9 @@
 @import '../../sass/helpers/variables';
 
 .Grid {
-    height: calc(100vh - #{$headerHeight});
+    height: calc(100vh - #{$headerHeight} - 2 * #{$bodyPadding});
+    display: grid;
+    grid-template-columns: repeat($gridRows, 1fr);
+    grid-template-rows: repeat($gridColumns, 1fr);
+    grid-gap: 5px;
 }
