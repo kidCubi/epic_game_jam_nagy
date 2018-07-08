@@ -18,7 +18,7 @@ class PowerupItemAutoIncrement extends PowerupItem {
             isChangingBehaviourAfterFirstClick: true
         }));
         this.setState(state => ({
-            price: 20
+            price: 10
         }));
         this.setState(state => ({
             triggerVisibility: 5

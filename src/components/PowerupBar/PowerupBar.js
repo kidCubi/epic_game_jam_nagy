@@ -74,3 +74,7 @@ class PowerupBar extends Component {
 }
 
 export default connect(mapState, mapActions)(PowerupBar);
+
+// priceIncrement={this.props.priceIncrement}
+// priceIncrement={this.props.priceIncrement}
+// priceIncrement={this.props.priceIncrement}

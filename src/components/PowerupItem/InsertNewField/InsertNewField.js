@@ -16,10 +16,10 @@ class InsertNewField extends PowerupItem {
             type: 'InsertNewField'
         }));
         this.setState(state => ({
-            price: 1
+            price: 12
         }));
         this.setState(state => ({
-            triggerVisibility: 1
+            triggerVisibility: 10
         }));
         this.setState(state => ({
             caption: 'New mining field'
