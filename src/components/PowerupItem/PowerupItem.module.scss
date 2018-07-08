@@ -18,6 +18,10 @@
         margin-bottom: 0;
     }
 
+    &:hover {
+        background: darken($c-purple, 10%);
+    }
+
     &.isVisible {
         opacity: 0.5;
     }
