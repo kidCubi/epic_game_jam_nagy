@@ -1,6 +1,14 @@
 @import '../../sass/helpers/mixins';
 @import '../../sass/helpers/variables';
 
+
+//FONT SIZES
+$fs-progress_percentage: 0.4em;
+$fs-progress_value: 1.3em;
+$fs-progress_multiplier: 0.42em;
+$fs-progress_totalPoints: 0.18em;
+$fs-progress_topRight: 0.18em;
+
 .Container {
   position: relative;
   display: inline-block;
@@ -8,6 +16,7 @@
   grid-row: 1 / span #{$gridRows + 1} ;
   cursor: pointer;
   background-color: $c-electricBlue;
+  font-size: 7vw;//reset this in NumberTile.js and Grid.js
 }
 
 .Wrapper {
@@ -21,23 +30,23 @@
 
 .ProgressValue {
   position: absolute;
-  bottom: 30px;
-  margin-left: 30px;
+  bottom: 3%;
+  margin-left: 3%;
   color: $c-purple;
-  font-size: 130px;
+  font-size: $fs-progress_value;
   font-weight: 700;
   .Percentage {
-    font-size: 40px;
+    font-size: $fs-progress_percentage;
   }
 }
 
 .TopLeft {
   border: 2px solid $c-purple;
-  width: 30%;
+  width: 0.9em;
   max-width:100px;
   position: absolute;
-  margin-top: 30px;
-  margin-left: 30px;
+  margin-top: 3%;
+  margin-left: 3%;
   font-weight: 400;
   .Multiplier {
     text-align: center;
@@ -45,7 +54,7 @@
     padding: 0.2em 0;
     background-color: $c-purple;
     color: $c-white;
-    font-size: 42px;
+    font-size: $fs-progress_multiplier;
     word-wrap: break-word;
   }
   .TotalPoints {
@@ -53,7 +62,7 @@
     background-color: $c-white;
     color: $c-purple;
     padding: 0.5em 1em;
-    font-size: 18px;
+    font-size: $fs-progress_totalPoints;
     word-wrap: break-word;
   }
 }
@@ -72,10 +81,10 @@
 
 .TopRight {
   position: absolute;
-  margin-top: 30px;
-  right: 30px;
+  margin-top: 3%;
+  right: 3%;
   color: $c-purple;
-  font-size: 18px;
+  font-size: $fs-progress_topRight;
 
   .SpeedMultiplier {
     font-weight: 100;
