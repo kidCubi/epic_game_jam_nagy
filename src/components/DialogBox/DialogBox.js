@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import classNames from 'classnames';
 
 import {randNum} from './../../helpers';
 
@@ -12,7 +13,8 @@ class DialogBox extends Component {
         this.state = {
             itemPrice: 0,
             choicesLoaded: false,
-            renderChild: true
+            renderChild: true,
+            isVisible: false
         };
 
         this.choices = [];
@@ -20,10 +22,21 @@ class DialogBox extends Component {
         this.decrementTotalPoints = this.decrementTotalPoints.bind(this);
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.choicesLoaded !== this.state.choicesLoaded) {
+            setTimeout(() => {
+                this.setState({
+                    isVisible: true
+                })
+            }, 10);
+        }
+    }
+
     componentDidMount() {
-        let x = this.props.x - (this.refDialogBox.getBoundingClientRect().width / 2) + randNum(100);
-        let y = this.props.y - (this.refDialogBox.getBoundingClientRect().height / 2) + randNum(200);
-        this.refDialogBox.style.transform = `translate(${x}px, ${y}px)`;
+        let x = this.props.x - randNum(20, 100 );
+        let y = this.props.y - randNum(200, 300 );
+        this.refDialogBox.style.left = `${x}px`;
+        this.refDialogBox.style.top = `${y}px`;
 
         this.props.choices.forEach((choice, index) => {
             if(choice.price) {
@@ -63,8 +76,14 @@ class DialogBox extends Component {
     }
 
     render() {
+
+        const classes = classNames(
+            styles.Wrapper,
+            { [styles.isVisible]: this.state.isVisible }
+        );
+
         return(
-            <div className={styles.Wrapper} ref={node => this.refDialogBox = node}>
+            <div className={classes} ref={node => this.refDialogBox = node}>
                 <div className={styles.DialogBoxTop}>
                     <div className={styles.Image}>
                         <img src={this.props.imgUrl} alt=""/>
