@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { TweenLite, Circ, Linear } from 'gsap';
+import { TweenLite } from 'gsap/TweenLite';
+import {Circ, Linear} from 'gsap/EasePack';
 import throttle from 'lodash.throttle';
 
 import styles from './NumberTile.module.scss';
@@ -50,8 +51,7 @@ class NumberTile extends Component {
     }
 
     componentDidMount() {
-        console.log(this)
-
+        
         this.fontSize = this.props.fontSize;
 
         this.width = this.props.width;
@@ -107,6 +107,7 @@ class NumberTile extends Component {
                     TweenLite.set(this.refProgressBar, { scaleX: 0 });
                     this.resetCount();
                     this.canClick = true;
+                    this.refProgressBar.style.transform = `scaleX(0)`
                 }
             });
         }
@@ -125,7 +126,7 @@ class NumberTile extends Component {
             totalPoints: this.state.totalPoints + this.state.multiplier
         }));
 
-        this.props.gameSetTotalPoints(this.state.multiplier + 1000);
+        this.props.gameSetTotalPoints(this.state.multiplier);
     }
 
     increaseMultiplierValue() {

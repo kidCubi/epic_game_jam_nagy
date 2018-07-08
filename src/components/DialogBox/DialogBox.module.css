@@ -11,6 +11,7 @@
    BREAKPOINTS
    ======================================================================== */
 .Wrapper {
+  cursor: move;
   width: 100%;
   height: 100%;
   max-height: 247px;
@@ -66,3 +67,6 @@
       display: flex;
       justify-content: center;
       align-items: center; }
+    .Choices .Choice a {
+      text-decoration: none;
+      color: #FF4451; }

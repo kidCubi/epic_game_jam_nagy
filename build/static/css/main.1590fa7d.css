@@ -1,0 +1,319 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* ========================================================================
+  GRADIENTS
+  ======================================================================= */
+/* ========================================================================
+   ASPECT RATIO
+   ======================================================================== */
+/**
+ * from https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+ */
+/* ========================================================================
+   BREAKPOINTS
+   ======================================================================== */
+html, body {
+  overflow-x: hidden;
+  min-height: 100vh; }
+
+body {
+  padding: 8px;
+  background: #1A00FF;
+  font-family: "Helvetica Neue", "Helvetica", sans-serif; }
+.Grid-module__Grid__1SKLBW {
+  height: calc(100vh - 60px - 2 * 8px);
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  grid-gap: 5px; }
+/* ========================================================================
+  GRADIENTS
+  ======================================================================= */
+/* ========================================================================
+   ASPECT RATIO
+   ======================================================================== */
+/**
+ * from https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+ */
+/* ========================================================================
+   BREAKPOINTS
+   ======================================================================== */
+.NumberTile-module__Container__35xW_8 {
+  position: relative;
+  display: inline-block;
+  grid-column: 1/span 17;
+  grid-row: 1/span 17;
+  cursor: pointer;
+  background-color: #97FFFF; }
+
+.NumberTile-module__Wrapper__USyCFV {
+  z-index: 11;
+  height: 100%;
+  width: 100%;
+  position: relative; }
+
+.NumberTile-module__ProgressValue__3GdBIq {
+  position: absolute;
+  bottom: 30px;
+  margin-left: 30px;
+  color: #1A00FF;
+  font-size: 130px;
+  font-weight: 700; }
+  .NumberTile-module__ProgressValue__3GdBIq .NumberTile-module__Percentage__2NJmSF {
+    font-size: 40px; }
+
+.NumberTile-module__TopLeft__alSzse {
+  border: 2px solid #1A00FF;
+  width: 30%;
+  max-width: 100px;
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 30px;
+  font-weight: 400; }
+  .NumberTile-module__TopLeft__alSzse .NumberTile-module__Multiplier__qw6gvo {
+    text-align: center;
+    display: block;
+    padding: 0.2em 0;
+    background-color: #1A00FF;
+    color: #FFFFFF;
+    font-size: 42px;
+    word-wrap: break-word; }
+  .NumberTile-module__TopLeft__alSzse .NumberTile-module__TotalPoints__3lr4dD {
+    display: block;
+    background-color: #FFFFFF;
+    color: #1A00FF;
+    padding: 0.5em 1em;
+    font-size: 18px;
+    word-wrap: break-word; }
+
+.NumberTile-module__ProgressBar__6QmpAw {
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 10;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #64ffff; }
+
+.NumberTile-module__TopRight__wWk3WT {
+  position: absolute;
+  margin-top: 30px;
+  right: 30px;
+  color: #1A00FF;
+  font-size: 18px; }
+  .NumberTile-module__TopRight__wWk3WT .NumberTile-module__SpeedMultiplier__3uVnbL {
+    font-weight: 100; }
+    .NumberTile-module__TopRight__wWk3WT .NumberTile-module__SpeedMultiplier__3uVnbL span {
+      font-weight: 700; }
+.PowerupBar-module__PowerupBar__3-DrpC {
+  z-index: 126;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 35%;
+  opacity: 0;
+  transition: opacity 0.3s; }
+  .PowerupBar-module__PowerupBar__3-DrpC.PowerupBar-module__isVisible__2wr2_V {
+    opacity: 1; }
+/* ========================================================================
+  GRADIENTS
+  ======================================================================= */
+/* ========================================================================
+   ASPECT RATIO
+   ======================================================================== */
+/**
+ * from https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+ */
+/* ========================================================================
+   BREAKPOINTS
+   ======================================================================== */
+.PowerupItem-module__PowerupItem__2dEHUE {
+  position: relative;
+  height: 10%;
+  background: #1A00FF;
+  padding: 13px 0 13px 10px;
+  margin-bottom: 3px;
+  opacity: 0;
+  font-size: 1.3vw;
+  pointer-events: none;
+  border: 2px solid #1A00FF;
+  color: #FFFFFF;
+  display: none; }
+  .PowerupItem-module__PowerupItem__2dEHUE:last-of-type {
+    margin-bottom: 0; }
+  .PowerupItem-module__PowerupItem__2dEHUE:hover {
+    background: #1500cc; }
+  .PowerupItem-module__PowerupItem__2dEHUE.PowerupItem-module__isVisible__3M4AhX {
+    display: block !important;
+    opacity: 0.5; }
+  .PowerupItem-module__PowerupItem__2dEHUE.PowerupItem-module__isActive__2a1O4i {
+    display: block !important;
+    opacity: 1;
+    pointer-events: auto; }
+  .PowerupItem-module__PowerupItem__2dEHUE.PowerupItem-module__isActive__2a1O4i:hover {
+    cursor: pointer; }
+
+.PowerupItem-module__Price__LMtGsu {
+  height: 100%;
+  padding: 0 1.4em;
+  right: 0;
+  top: 0;
+  position: absolute;
+  color: #1A00FF;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+.Header-module__Header__1IKFSP {
+  width: 100%;
+  height: 60px; }
+
+.Header-module__InfoWrapper__kbZsX3 {
+  display: inline-flex;
+  align-items: center;
+  min-width: 100px;
+  height: 52px;
+  margin-right: 8px;
+  background: white;
+  color: #1A00FF;
+  width: 30%; }
+
+.Header-module__Info__3EBdMu {
+  flex-grow: 1;
+  padding: 0 20px;
+  font-size: 42px;
+  font-weight: 700; }
+
+.Header-module__InfoCaption__1WqsQ- {
+  padding-right: 1em;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 10px; }
+/* ========================================================================
+  GRADIENTS
+  ======================================================================= */
+/* ========================================================================
+   ASPECT RATIO
+   ======================================================================== */
+/**
+ * from https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+ */
+/* ========================================================================
+   BREAKPOINTS
+   ======================================================================== */
+.DialogBox-module__Wrapper__1qdC8v {
+  width: 100%;
+  height: 100%;
+  max-height: 247px;
+  max-width: 460px;
+  position: absolute;
+  background: red;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  transform: scale(0); }
+  .DialogBox-module__Wrapper__1qdC8v.DialogBox-module__isVisible__2NmXO4 {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(1); }
+
+.DialogBox-module__DialogBoxTop__2mM5ca {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; }
+  .DialogBox-module__DialogBoxTop__2mM5ca .DialogBox-module__Image__3--lYV {
+    width: 90px;
+    height: 90px;
+    background: #FFF0A2;
+    display: inline-block; }
+    .DialogBox-module__DialogBoxTop__2mM5ca .DialogBox-module__Image__3--lYV img {
+      margin: 0 auto;
+      padding: 21px 15px; }
+  .DialogBox-module__DialogBoxTop__2mM5ca .DialogBox-module__Content__1UhrNR {
+    width: 77%;
+    color: #FFFFFF;
+    display: inline-block; }
+
+.DialogBox-module__Choices__2lXsLV {
+  width: 100%;
+  padding-top: 23px; }
+  .DialogBox-module__Choices__2lXsLV .DialogBox-module__Choice__2j83p1 {
+    height: 48px;
+    cursor: pointer;
+    color: #FF4451;
+    background: #FFFFFF;
+    outline: 2px solid #FF4451;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .DialogBox-module__Choices__2lXsLV .DialogBox-module__Choice__2j83p1 .DialogBox-module__Price__2P1Heb {
+      height: 100%;
+      background-color: #FFF0A2;
+      outline: 2px solid #FF4451;
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+
+/*# sourceMappingURL=main.1590fa7d.css.map*/
