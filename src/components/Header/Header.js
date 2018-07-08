@@ -30,7 +30,7 @@ class Header extends Component {
                 </div>
                 <div className={styles.InfoWrapper}>
                     <span className={styles.Info}>{this.props.gameTotalSpeed}</span>
-                    <span className={styles.InfoCaption}>/ second</span>
+                    <span className={styles.InfoCaption}>/ sec</span>
                 </div>
 
             </div>

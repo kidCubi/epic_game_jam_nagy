@@ -80,6 +80,7 @@ class NumberTile extends Component {
         let count = {val: this.state.progress};
 
         if(this.canClick) {
+            TweenLite.set(this.refProgressBar, {clearProps: "transformOrigin"});
             TweenLite.to(count, 1.3, {
                 val: "+=" + 100,
                 ease: Circ.easeOut,
@@ -92,6 +93,7 @@ class NumberTile extends Component {
                 },
                 onComplete: () => {
                     TweenLite.to(this.refProgressBar, 0.25, {
+                        transformOrigin: "right",
                         scaleX: 0,
                         ease: Circ.easeOut
                     });
@@ -198,9 +200,9 @@ class NumberTile extends Component {
 
     render() {
         return (
-            <div className={styles.Container} ref={node => this.refWrapper = node} onClick={throttle(this.incrementTileProgress, 5000, {trailing: true})}>
+            <div className={styles.Container} ref={node => this.refWrapper = node} >
 
-                <div className={styles.Wrapper}>
+                <div className={styles.Wrapper} onClick={throttle(this.incrementTileProgress, 5000, {trailing: true})}>
                     <span className={styles.ProgressValue}>
                         {this.state.progress}
                         <span className={styles.Percentage}>%</span>

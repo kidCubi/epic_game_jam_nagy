@@ -24,6 +24,8 @@
   color: #FFFFFF; }
   .PowerupItem:last-of-type {
     margin-bottom: 0; }
+  .PowerupItem:hover {
+    background: #1500cc; }
   .PowerupItem.isVisible {
     opacity: 0.5; }
   .PowerupItem.isActive {

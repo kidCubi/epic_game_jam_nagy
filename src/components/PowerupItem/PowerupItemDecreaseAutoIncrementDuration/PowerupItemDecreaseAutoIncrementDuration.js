@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 
 import classNames from 'classnames';
 
-import styles from './PowerupItemIncrementMultiplier.module.scss'
+import styles from './PowerupItemDecreaseAutoIncrementDuration.module.scss'
 import PowerupItem from './../PowerupItem.js'
 
-class PowerupItemIncrementMultiplier extends PowerupItem {
+class PowerupItemDecreaseAutoIncrementDuration extends PowerupItem {
 
     constructor() {
         super();
@@ -13,21 +13,22 @@ class PowerupItemIncrementMultiplier extends PowerupItem {
 
     init() {
         this.setState(state => ({
-            price: 5
+            price: 55
         }));
         this.setState(state => ({
-            triggerVisibility: 5
+            triggerVisibility: 20
         }));
         this.setState(state => ({
-            caption: 'Rewards +1.0'
+            priceMultiplier: 2
+        }));
+        this.setState(state => ({
+            caption: 'Speed +'
         }));
     }
 
     componentDidMount() {
         this.init();
     }
-
-
 }
 
-export default PowerupItemIncrementMultiplier;
+export default PowerupItemDecreaseAutoIncrementDuration;
