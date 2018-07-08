@@ -19,7 +19,7 @@ class PowerupItemIncrementMultiplier extends PowerupItem {
             triggerVisibility: 5
         }));
         this.setState(state => ({
-            caption: 'Rewards xn.n'
+            caption: 'Rewards +1.0'
         }));
     }
 

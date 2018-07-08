@@ -22,7 +22,7 @@ class PowerupItemDecreaseAutoIncrementDuration extends PowerupItem {
             priceMultiplier: 2
         }));
         this.setState(state => ({
-            caption: 'Speed xn.n'
+            caption: 'Speed +'
         }));
     }
 
