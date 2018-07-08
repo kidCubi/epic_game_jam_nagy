@@ -7,7 +7,7 @@ import { LoadFonts } from "./configFonts";
 import configureStore from './redux/store/configureStore';
 import registerServiceWorker from './registerServiceWorker';
 
-document.title = "NAGY Game !!";
+document.title = "From 0 to her0";
 
 const store = configureStore();
 

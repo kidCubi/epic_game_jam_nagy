@@ -51,8 +51,7 @@ class NumberTile extends Component {
     }
 
     componentDidMount() {
-        console.log(this)
-
+        
         this.fontSize = this.props.fontSize;
 
         this.width = this.props.width;
@@ -108,6 +107,7 @@ class NumberTile extends Component {
                     TweenLite.set(this.refProgressBar, { scaleX: 0 });
                     this.resetCount();
                     this.canClick = true;
+                    this.refProgressBar.style.transform = `scaleX(0)`
                 }
             });
         }
