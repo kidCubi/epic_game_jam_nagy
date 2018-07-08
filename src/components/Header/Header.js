@@ -64,10 +64,7 @@ class Header extends Component {
                     <span className={styles.Info}>{this.props.gameTotalPoints}</span>
                     <span className={styles.InfoCaption}>pts</span>
                 </div>
-                <div className={styles.InfoWrapper}>
-                    <span className={styles.Info}>{this.props.gameTotalSpeed}</span>
-                    <span className={styles.InfoCaption}>/ sec</span>
-                </div>
+
 
                 {this.state.dialogBoxes.map((item, index) =>
                     <DialogBox
@@ -88,3 +85,8 @@ class Header extends Component {
 }
 
 export default connect(mapState, mapActions)(Header);
+
+// <div className={styles.InfoWrapper}>
+//      <span className={styles.Info}>{this.props.gameTotalSpeed}</span>
+//      <span className={styles.InfoCaption}>/ sec</span>
+// </div>
