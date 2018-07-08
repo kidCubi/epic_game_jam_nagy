@@ -3,7 +3,7 @@
   position: absolute;
   top: 20px;
   right: 3%;
-  width: 5em;
+  width: 35%;
   opacity: 0;
   transition: opacity 0.3s; }
   .PowerupBar.isVisible {

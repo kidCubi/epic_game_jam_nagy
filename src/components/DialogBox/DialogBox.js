@@ -47,10 +47,18 @@ class DialogBox extends Component {
                 this.choices.push(
                     <div className={styles.Choice}
                          key={index}
-                         onClick={this.decrementTotalPoints}
-                    >
+                         onClick={this.decrementTotalPoints}>
                         <span>{choice.content}</span>
                         <span className={styles.Price}>{choice.price}</span>
+                    </div>
+                );
+            } else if(choice.url1){
+                let url = choice.url1 + window.href + choice.url2;
+                this.choices.push(
+                    <div className={styles.Choice}
+                         key={index}
+                         onClick={this.decrementTotalPointsAndChangeDialog}>
+                        <span><a href={url} target="_blank">{choice.content}</a></span>
                     </div>
                 );
             } else {

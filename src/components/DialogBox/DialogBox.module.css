@@ -67,3 +67,6 @@
       display: flex;
       justify-content: center;
       align-items: center; }
+    .Choices .Choice a {
+      text-decoration: none;
+      color: #FF4451; }
