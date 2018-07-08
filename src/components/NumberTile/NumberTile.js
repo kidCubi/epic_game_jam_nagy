@@ -126,7 +126,7 @@ class NumberTile extends Component {
             totalPoints: this.state.totalPoints + this.state.multiplier
         }));
 
-        this.props.gameSetTotalPoints(this.state.multiplier + 1000);
+        this.props.gameSetTotalPoints(this.state.multiplier);
     }
 
     increaseMultiplierValue() {
