@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import styles from './Header.module.scss';
 
+import {dialogueMilestones} from './../../dialogueMilestones';
+import {uid} from './../../helpers';
 
+import DialogBox from './../DialogBox/DialogBox';
 
 import { connect } from 'react-redux';
 //import a redux mutator
@@ -19,6 +22,39 @@ const mapActions = dispatch => ({
 class Header extends Component {
     constructor() {
         super();
+
+        this.state = {
+            dialogBoxes: [
+            ]
+        };
+
+        this.newDialogBox = this.newDialogBox.bind(this);
+    }
+
+    newDialogBox(data) {
+        let x = window.innerWidth / 2;
+        let y = window.innerHeight / 2;
+        let newDialogBox = {id: uid(), data: data, x: x, y: y};
+        this.setState({
+            dialogBoxes: [...this.state.dialogBoxes, newDialogBox]
+        });
+    }
+
+    componentDidUpdate(prevProps) {
+        if(prevProps !== this.props.gameTotalPoints) {
+
+            //TODO : Use redux, and don't put the dialog components in the header !!!!
+            dialogueMilestones.forEach((value, index) => {
+                if(!value.hasBeenClosed) {
+                    if(this.props.gameTotalPoints >= value.milestone) {
+                        this.newDialogBox(value);
+                        value.hasBeenClosed = true;
+                    }
+                }
+
+            });
+
+        }
     }
 
     render() {
@@ -32,6 +68,18 @@ class Header extends Component {
                     <span className={styles.Info}>{this.props.gameTotalSpeed}</span>
                     <span className={styles.InfoCaption}>/ sec</span>
                 </div>
+
+                {this.state.dialogBoxes.map((item, index) =>
+                    <DialogBox
+                        key={index}
+                        x={item.y}
+                        y={item.x}
+                        totalPoints={this.props.gameTotalPoints}
+                        imgUrl={item.data.img}
+                        text={item.data.text}
+                        choices={item.data.choices}
+                    />
+                )}
 
             </div>
         );

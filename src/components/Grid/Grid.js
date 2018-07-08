@@ -54,7 +54,7 @@ class Grid extends Component {
                         gameSetTotalPoints={this.props.gameSetTotalPoints}
                         gameSetTotalSpeed={this.props.gameSetTotalSpeed}
                     />
-                )};
+                )}
             </div>
         );
     }

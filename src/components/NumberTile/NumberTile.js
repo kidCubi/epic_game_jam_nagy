@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { TweenLite, Circ } from 'gsap';
+import { TweenLite, Circ, Linear } from 'gsap';
 import throttle from 'lodash.throttle';
 
 import styles from './NumberTile.module.scss';
 import PowerupBar from '../PowerupBar/PowerupBar'
-
 
 import { connect } from 'react-redux';
 //import a redux mutator
@@ -63,10 +62,9 @@ class NumberTile extends Component {
         let count = {val: this.state.progress};
 
         if(this.canClick) {
-            TweenLite.set(this.refProgressBar, {clearProps: "transformOrigin"});
             TweenLite.to(count, 1.3, {
                 val: "+=" + 100,
-                ease: Circ.easeOut,
+                ease: Linear.easeInOut,
                 onUpdate: () => {
                     this.canClick = false;
                     this.setState(state => ({
@@ -75,11 +73,7 @@ class NumberTile extends Component {
                     this.refProgressBar.style.transform = `scaleX(${ count.val / 100 })`
                 },
                 onComplete: () => {
-                    TweenLite.to(this.refProgressBar, 0.25, {
-                        transformOrigin: "right",
-                        scaleX: 0,
-                        ease: Circ.easeOut
-                    });
+                    TweenLite.set(this.refProgressBar, { scaleX: 0 });
                     this.resetCount();
                     this.canClick = true;
                 }
@@ -100,7 +94,7 @@ class NumberTile extends Component {
             totalPoints: this.state.totalPoints + this.state.multiplier
         }));
 
-        this.props.gameSetTotalPoints(this.state.multiplier);
+        this.props.gameSetTotalPoints(this.state.multiplier + 1000);
     }
 
     increaseMultiplierValue() {
