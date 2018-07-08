@@ -123,7 +123,6 @@ class NumberTile extends Component {
         this.setState(state => ({
             autoIncrementDuration: count
         }));
-        console.log(this.state.autoIncrementDuration)
     }
 
     decreaseTotalPoints(cost) {

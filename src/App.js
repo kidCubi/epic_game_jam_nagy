@@ -30,8 +30,6 @@ class App extends Component {
         this.setState(state => ({
             totalPoints: totalPoints
         }));
-
-        console.log(this.state.totalPoints);
     }
 
 

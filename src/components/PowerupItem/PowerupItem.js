@@ -9,6 +9,8 @@ class PowerupItem extends Component {
     constructor() {
         super();
         this.state = {
+            isChangingBehaviourAfterFirstClick: false,
+            stage: 1,
             isVisible: false,
             isActive: false,
             isSold:false,
@@ -43,10 +45,6 @@ class PowerupItem extends Component {
         }));
     }
 
-    componentDidMount() {
-        console.log(this.props);
-    }
-
     componentDidUpdate(prevProps) {
         if(prevProps.totalPoints !== this.props.totalPoints) {
             if( this.props.totalPoints >= this.state.price && !this.state.isActive) {
@@ -61,14 +59,36 @@ class PowerupItem extends Component {
                 this.makeInActive();
             }
 
+            if(this.state.stage === 2) {
+                let caption2 = this.state.caption2;
+                this.setState(state => ({
+                    caption: caption2
+                }));
+            }
+
         }
 
     }
 
     handleClick() {
-        this.props.modifyParent();
+
+        if( this.state.stage === 2 &&
+            this.state.isChangingBehaviourAfterFirstClick
+        ) {
+            this.props.modifyParent2();
+        } else {
+            this.props.modifyParent();
+        }
+
         this.props.decreaseTotalPoints(-1 * this.state.price);
         this.increasePrice();
+
+        if(this.state.isChangingBehaviourAfterFirstClick) {
+            this.setState(state => ({
+                stage: 2
+            }));
+        }
+
     }
 
     increasePrice() {

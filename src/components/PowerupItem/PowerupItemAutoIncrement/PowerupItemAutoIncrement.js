@@ -4,13 +4,16 @@ import styles from './PowerupItemAutoIncrement.module.scss'
 
 import PowerupItem from './../PowerupItem.js'
 
-class PowerupItemIncrementMultiplier extends PowerupItem {
+class PowerupItemAutoIncrement extends PowerupItem {
 
     constructor() {
         super();
     }
 
     init() {
+        this.setState(state => ({
+            isChangingBehaviourAfterFirstClick: true
+        }));
         this.setState(state => ({
             price: 20
         }));
@@ -20,11 +23,16 @@ class PowerupItemIncrementMultiplier extends PowerupItem {
         this.setState(state => ({
             caption: 'Automation'
         }));
+        this.setState(state => ({
+            caption2: 'Speed it up'
+        }));
     }
 
     componentDidMount() {
         this.init();
     }
+
+
 }
 
-export default PowerupItemIncrementMultiplier;
+export default PowerupItemAutoIncrement;
