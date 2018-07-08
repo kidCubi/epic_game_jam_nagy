@@ -220,14 +220,14 @@ class NumberTile extends Component {
                         <span className={styles.TotalPoints}>+{this.state.multiplier}</span>
                     </div>
 
-                    <div className={styles.TopRight}>
-                        <div className={styles.SpeedMultiplier}>
-                            Speed <span>x {
-                            (this.state.autoIncrementDuration / (this.state.autoIncrementDuration * 0.99)).toFixed(1)
-                        }</span>
+                    {/* <div className={styles.TopRight}>
+                     <div className={styles.SpeedMultiplier}>
+                     Speed <span>x {
+                     (this.state.autoIncrementDuration / (this.state.autoIncrementDuration * 0.99)).toFixed(1)
+                     }</span>
 
-                        </div>
-                    </div>
+                     </div>
+                     </div> */}
                 </div>
 
 
